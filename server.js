@@ -10,7 +10,6 @@ const app = express();
 // Set the port of our application
 // process.env.PORT lets the port be set by Heroku
 const PORT = process.env.PORT || 8080;
-const dbConfig = (process.env.NODE_ENV === "production") ? config.heroku : config.db
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -21,7 +20,14 @@ app.use(express.static('public'));
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-const connection = mysql.createConnection(config.db);
+//by default use local settings
+let dbConfig = config.local
+//change if in production
+if( process.env.NODE_ENV === "production") {
+  dbConfig = config.production
+}
+
+const connection = mysql.createConnection(dbConfig);
 connection.connect(function(err) {
   if (err) {
     console.error("error connecting: " + err.stack);

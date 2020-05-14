@@ -7,7 +7,7 @@ module.exports = {
     password: "",
     database: ""
   },
-  heroku: {
+  production: {
     host: "",
     port: 3306,
     user: "",

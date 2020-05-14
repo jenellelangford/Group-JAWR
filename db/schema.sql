@@ -9,5 +9,5 @@ CREATE TABLE tables (
   category VARCHAR(45) NULL,
   starting_num INT default 0,
   price DECIMAL(10,2) NULL,
-  quantity INT NULL,
+  quantity INT NULL
 );
