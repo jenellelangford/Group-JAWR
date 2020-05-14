@@ -1,0 +1,25 @@
+{
+  "name": "Group-JAWR",
+  "version": "1.0.0",
+  "description": "GWU Group Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jenellelangford/Group-JAWR.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jenellelangford/Group-JAWR/issues"
+  },
+  "homepage": "https://github.com/jenellelangford/Group-JAWR#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^4.0.4",
+    "mysql": "^2.18.1"
+  }
+}
