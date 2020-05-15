@@ -38,6 +38,8 @@ connection.connect(function(err) {
 // ROUTES
     //DO WE WANT TO PUT THESE IN A SEPERATE CONTROLLER FOLDER
 
+// BUILD OUT DUMMY ROUTES 
+
 
 //LISTEN    
 app.listen(PORT, function() {
