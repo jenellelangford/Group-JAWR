@@ -1,13 +1,15 @@
-DROP DATABASE IF EXISTS name_DB;
-CREATE DATABASE nameDB;
+DROP DATABASE IF EXISTS light_db;
+CREATE DATABASE light_db;
 
-USE nameDB;
+USE light_db;
 
-CREATE TABLE tables (
+CREATE TABLE workers (
   id INT AUTO_INCREMENT PRIMARY KEY,
-  item VARCHAR(100) NULL,
-  category VARCHAR(45) NULL,
-  starting_num INT default 0,
-  price DECIMAL(10,2) NULL,
-  quantity INT NULL
+  first_name VARCHAR(30),
+  last_name VARCHAR(30),
+  username VARCHAR(40),
+  user_password VARCHAR(40),
+  email VARCHAR(40),
+  user_desc TEXT,
+  photo_src TEXT 
 );
