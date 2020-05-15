@@ -20,14 +20,12 @@ app.use(express.static('public'));
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-//by default use local settings
-let dbConfig = config.local
-//change if in production
-if( process.env.NODE_ENV === "production") {
-  dbConfig = config.production
-}
 
-const connection = mysql.createConnection(dbConfig);
+//by default use local settings
+const dbCreds = (process.env.NODE_ENV === "production") ? config.production : config.db;
+//change if in production
+
+const connection = mysql.createConnection(dbCreds);
 connection.connect(function(err) {
   if (err) {
     console.error("error connecting: " + err.stack);

@@ -2,9 +2,11 @@
 
 <!-- playing around for badges -->
 
-**Link to GitHub Repo Here =>** [![GitHub commit activity](https://img.shields.io/github/commit-activity/m/jenellelangford/Group-JAWR)](https://github.com/jenellelangford/Group-JAWR)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/jenellelangford/Group-JAWR)
 
-**TRELLO LINK =>** [Manage JAWR Group Tasks](https://trello.com/b/E6amzYhr/group-jawr)
+**TRELLO LINK:** [Manage JAWR Group Tasks](https://trello.com/b/E6amzYhr/group-jawr)
+
+**GIT HUB REPO:** [GROUP JAWR](https://github.com/jenellelangford/Group-JAWR)
 
 
 ## Description
