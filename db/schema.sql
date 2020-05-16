@@ -4,7 +4,7 @@ CREATE DATABASE light_db;
 USE light_db;
 
 CREATE TABLE users (
-  id INTEGER AUTO_INCREMENT NOT NULL,
+  id INTEGER AUTO_INCREMENT NOT NULL PRIMARY KEY,
   avatar_src VARCHAR(40),
   first_name VARCHAR(40),
   last_name VARCHAR(40),
@@ -16,20 +16,27 @@ CREATE TABLE users (
 )
 
 CREATE TABLE workers (
-  worker_id INTEGER AUTO_INCREMENT PRIMARY KEY,
-  id INTEGER NOT NULL,
+  id INTEGER AUTO_INCREMENT PRIMARY KEY,
   requests TEXT,
   skills TEXT
+  personal_link VARCHAR (40),
+  user_id INT,
+    FOREIGN KEY (user_id)
+      REFERENCES users(id)
 );
 
 CREATE TABLE patrons (
-  patron_id INTEGER AUTO_INCREMENT PRIMARY KEY,
-  id INTEGER NOT NULL,
+  id INTEGER AUTO_INCREMENT PRIMARY KEY,
+  user_id INT,
+    FOREIGN KEY (user_id)
+      REFERENCES users(id)
 );
 
 CREATE TABLE coders (
-  coder_id INTEGER AUTO_INCREMENT PRIMARY KEY,
-  id INTEGER NOT NULL,
+  id INTEGER AUTO_INCREMENT PRIMARY KEY,
   speciality VARCHAR(40),
   skills TEXT
+  user_id INT,
+    FOREIGN KEY (user_id)
+      REFERENCES users(id)
 );
