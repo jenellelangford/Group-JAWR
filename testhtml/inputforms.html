@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>About Me</title>
 
   <!-- We link our html to the Bootstrap CDN -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -19,55 +19,72 @@
           <div class="col-12">
             <form>
               <div class="form-group">
-                <label for="firstName" class="control-label">First Name</label>
+              <h3>Create Your Account:</h3>
+              <div class="form-group">
+                <label for="email"><h6>Email address</h6></label>
+                  <input type="email" class="form-control" id="email" placeholder="name@example.com">
+              </div>
+              <div class="container-stacked">
+                <label for="password"><h6>Create Password:</h6></label>
+                  <input name="password" required="required" type="password" id="password">
+                <label for="password_confirm"><h6>Confirm Password:</h6></label>
+                  <input name="password_confirm" required="required" type="password" id="password_confirm">
+              </div>
+              <div class="form-group">
+              <h3>Tell us about yourself!</h3>
+                <label for="firstName" class="control-label"><h6>First Name</h6></label>
                   <input type="name" class="form-control" id="firstName" placeholder="Jane">
               </div>
               <div class="form-group">
-                <label for="lastName" class="control-label">Last Name</label>
+                <label for="lastName" class="control-label"><h6>Last Name</h6></label>
                   <input type="name" class="form-control" id="lastName" placeholder="Smith">
               </div>
               <div class="form-group">
-                <label for="avatar">Example file input</label>
-                <input type="file" class="form-control-file" id="avatar">
+                <label for="location" class="control-label"><h6>Location</h6></label>
+                  <input type="text" class="form-control" id="location" placeholder="Anytown, VA">
               </div>
               <div class="form-group">
-                <label for="email">Email address</label>
-                <input type="email" class="form-control" id="email" placeholder="name@example.com">
-              </div>
-              <h3>WHO ARE YOU</h3>
+                <h3>Upload an avatar!</h3>
+                  <label for="avatar">It can be a picture of you, or just something you love.<br>  
+                    Don't worry if you're unsure, you'll be able to add one or change it later.</label>
+                  <input type="file" class="form-control-file" id="avatar">
+                </div>
+              <h3>Who are you?</h3>
+              <h5>I am a...</h5>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="usertype" id="worker" value="option1">
+                <input class="form-check-input" type="radio" name="usertype" id="worker" value="option1" checked>
                 <label class="form-check-label" for="worker">
-                  WORKER
+                  Worker
                 </label>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="radio" name="usertype" id="coder" value="option2">
                 <label class="form-check-label" for="coder">
-                  CODER
+                  Coder
                 </label>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="radio" name="usertype" id="donor" value="option3">
-                <label class="form-check-label" for="exampleRadios3">
-                  DONOR
+                <label class="form-check-label" for="donor">
+                  Donor
                 </label>
               </div>
-              <h3>What's your tech speciality</h3>
+              <br>
+              <h3>What's your tech speciality?</h3>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="css">
+                <input class="form-check-input" type="checkbox" value="" id="coder-css">
                 <label class="form-check-label" for="css">
                   CSS
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="html">
+                <input class="form-check-input" type="checkbox" value="" id="coder-html">
                 <label class="form-check-label" for="html">
                   HTML
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="javascript">
+                <input class="form-check-input" type="checkbox" value="" id="coder-javascript">
                 <label class="form-check-label" for="javascript">
                   JavaScript
                 </label>
@@ -75,10 +92,12 @@
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="node">
                 <label class="form-check-label" for="node">
-                  NODE
+                  Node.js
                 </label>
               </div>
-              <div class="form-group">
+              <br>  
+              <!-- Commented out for now since last question does this job -->
+              <!-- <div class="form-group">
                 <label for="coderTech">Example select</label>
                 <select class="form-control" id="exampleFormControlSelect1">
                   <option>HTML</option>
@@ -86,19 +105,58 @@
                   <option>JavaScript</option>
                   <option>NODE</option>
                 </select>
+              </div> -->
+              <h3>Just a few more questions:</h3>
+              <label for="talent"><h6>I have a secret talent for...</h6></label>
+              <div class="form-group">
+                <textarea class="form-control" id="talent" rows="3" placeholder="Whether you juggle chainsaws or have a nice smile, there's no wrong answer."></textarea>
               </div>
               <div class="form-group">
-                <label for="moreinfo">What else would you like to accomplish.</label>
+                <label for="youtube"><h6>Got a video of yourself that you'd like to show the world?  Paste the YouTube URL here!:</h6></label>
+                <textarea class="form-control" id="youtube" rows="1" placeholder="https://www.youtube.com/watch?v=dQw4w9WgXcQ"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="userreference"><h6>How did you find our service?</h6></label>
+                <select class="form-control" id="userreference">
+                  <option>Pure luck</option>
+                  <option>Website</option>
+                  <option>Friend</option>
+                  <option>Social media</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="moreinfo"><h6>What else would you like to accomplish?</h6></label>
                 <textarea class="form-control" id="moreinfo" rows="3"></textarea>
               </div>
+              <input type="submit" value="Submit and Create My Profile">
             </form>
+            <br>
           </div>
         </div>
       </div>
     </div>
-
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
   
+  var password = document.getElementById("password")
+    , confirm_password = document.getElementById("confirm_password");
+  
+  function validatePassword(){
+    if(password.value != confirm_password.value) {
+      confirm_password.setCustomValidity("Passwords Don't Match");
+    } else {
+      confirm_password.setCustomValidity('');
+    }
+  }
+  
+  password.onchange = validatePassword;
+  confirm_password.onkeyup = validatePassword;
+  
+  </script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+   
+
+
+
 </body>
 </html>
