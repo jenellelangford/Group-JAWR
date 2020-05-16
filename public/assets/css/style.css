@@ -1,26 +1,49 @@
+/* HOME PAGE */
 h1 {
   text-align: center;
+  font-family: 'Monoton', cursive;
+  margin-bottom: 50px;
 }
 
-flex-container {
-  align-content: center;
+.card {
+  margin: 10px auto; 
+  float: none; 
+  padding: 10px;
 }
- .card-body{
-  padding: 50px;
 
- }
 ul {
   list-style-type: none;
-}
-
-li {
   text-align: center;
 }
+
 
 h5 {
   text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
 }
 
-card {
+/* WORKER PAGE */
+
+.container {
+  justify-content: center;
+}
+.worker-card {
+  width: 400px;
+  padding: 0 auto;
+  margin: 20px 50px 50px 50px; 
+  float: none; 
+}
+
+.card-body {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+worker-list {
+  list-style: none;
   text-align: center;
 }
+
+
+
