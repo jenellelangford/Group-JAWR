@@ -13,12 +13,12 @@ CREATE TABLE users (
   user_password VARCHAR(30),
   user_venmo VARCHAR(30),
   user_location VARCHAR(30)
-)
+);
 
 CREATE TABLE workers (
   id INTEGER AUTO_INCREMENT PRIMARY KEY,
   requests TEXT,
-  skills TEXT
+  skills TEXT,
   personal_link VARCHAR (40),
   user_id INT,
     FOREIGN KEY (user_id)
@@ -33,10 +33,9 @@ CREATE TABLE patrons (
 );
 
 CREATE TABLE coders (
-  id INTEGER AUTO_INCREMENT PRIMARY KEY,
-  speciality VARCHAR(40),
-  skills TEXT
-  user_id INT,
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    speciality VARCHAR(40),
+    skills TEXT,
+    user_id INT,
     FOREIGN KEY (user_id)
-      REFERENCES users(id)
-);
+        REFERENCES users (id)
