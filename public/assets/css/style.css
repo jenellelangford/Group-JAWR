@@ -96,6 +96,31 @@ worker-list {
 }
 
 
+h1 {
+  text-align: center;
+}
 
+flex-container {
+  align-content: center;
+}
+ .card-body{
+  padding: 50px;
+
+ }
+ul {
+  list-style-type: none;
+}
+
+li {
+  text-align: center;
+}
+
+h5 {
+  text-align: center;
+}
+
+card {
+  text-align: center;
+}
 
 
