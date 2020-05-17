@@ -1,4 +1,4 @@
-# GROUP NARR Project_01
+# GROUP JAWR: Light at the End of the Tunnel
 
 <!-- playing around for badges -->
 
@@ -11,8 +11,9 @@
 
 ## Description
 
-LIGHT AT THE END OF THE TUNNEL| ADOPT A SERVICE WORKER APP
-Helping front of house servers find ways to gain exposure and funds from the community in times of quarantine
+LIGHT AT THE END OF THE TUNNEL| ADOPT A WORKER APP
+
+Bringing service workers, coders, and patrons together in the age of quarantine. 
 
 ## Table Of Contents
 
@@ -41,8 +42,8 @@ Install dependencies using command below
 
 3 USERS
 * Worker
-* Tech/Coder to HELP Worker
-* Donor to HELP Worker
+* Tech/Coder
+* Patron 
 
 ## Credits
 
@@ -65,7 +66,7 @@ Install dependencies using command below
 
 MIT License
 
-Copyright (c) [2020] [Jenelle Langford, Andrew Bratcher , William Rave and Rachel Murray]
+Copyright (c) [2020] [Jenelle Langford, Andrew Bratcher, William Rave, and Rachel Murray]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
