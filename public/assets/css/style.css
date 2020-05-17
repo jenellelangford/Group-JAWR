@@ -1,11 +1,42 @@
 /* HOME PAGE */
+#jumbotron {
+  /*background-color: #FDF5E6; */
+  background-image: url("https://images.unsplash.com/photo-1516541196182-6bdb0516ed27?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80");
+}
+
+body {
+  /*background-color: #FDF5E6; */
+  background-image: url("https://images.unsplash.com/photo-1516541196182-6bdb0516ed27?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80");
+}
+
 h1 {
   text-align: center;
   font-family: 'Monoton', cursive;
+  border: 2px #5F9EA0 dashed;
   margin-bottom: 50px;
+  width: 500px;
+  margin: 10px auto; 
+  float: none; 
+  padding: 10px; 
 }
 
-.card {
+.worker-card {
+  background-image: url("https://images.unsplash.com/photo-1509669803555-fd5edd8d5a41?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
+  margin: 10px auto; 
+  float: none; 
+  padding: 10px;
+  
+}
+
+.coder-card {
+  background-image: url("https://images.unsplash.com/photo-1518933165971-611dbc9c412d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80");
+  margin: 10px auto; 
+  float: none; 
+  padding: 10px;
+}
+
+.donor-card {
+  background-image: url("https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
   margin: 10px auto; 
   float: none; 
   padding: 10px;
@@ -19,17 +50,28 @@ ul {
 
 h5 {
   text-align: center;
+  color: white;
+  font-style: bold;
   font-family: 'Montserrat', sans-serif;
   font-size: 30px;
 }
 
 /* WORKER PAGE */
 
+#navbar {
+  background-color: #FFFAF0;
+}
+
 .container {
   justify-content: center;
+  justify-content: space-evenly;
+  background-color: whitesmoke;
 }
-.worker-card {
-  width: 400px;
+
+.html-worker-cards {
+  justify-content: center;
+  justify-content: space-evenly;
+  width: 250px;
   padding: 0 auto;
   margin: 20px 50px 50px 50px; 
   float: none; 
@@ -40,10 +82,20 @@ h5 {
   font-family: 'Montserrat', sans-serif;
 }
 
+.card-title-wp {
+  text-align: center;
+  color: black;
+  font-style: bold;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+}
+
 worker-list {
   list-style: none;
   text-align: center;
 }
+
+
 
 
 
