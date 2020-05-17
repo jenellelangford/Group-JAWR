@@ -10,6 +10,16 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="/assets/css/style.css">
   
+
+  <!-- Handy Dandy Coder Question Hider-->
+  <style>
+  #questionhider {
+
+  display:none;
+  
+  }
+  </style>
+
 </head>
 <body>
   <body>
@@ -30,6 +40,7 @@
                 <label for="password_confirm"><h6>Confirm Password:</h6></label>
                   <input name="password_confirm" required="required" type="password" id="password_confirm">
               </div>
+              <div id="errors" class="well"></div>
               <div class="form-group">
               <h3>Tell us about yourself!</h3>
                 <label for="firstName" class="control-label"><h6>First Name</h6></label>
@@ -49,53 +60,55 @@
                     Don't worry if you're unsure, you'll be able to add one or change it later.</label>
                   <input type="file" class="form-control-file" id="avatar">
                 </div>
-              <h3>Who are you?</h3>
-              <h5>I am a...</h5>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="usertype" id="worker" value="option1" checked>
-                <label class="form-check-label" for="worker">
-                  Worker
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="usertype" id="coder" value="option2">
-                <label class="form-check-label" for="coder">
-                  Coder
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="usertype" id="donor" value="option3">
-                <label class="form-check-label" for="donor">
-                  Donor
-                </label>
-              </div>
-              <br>
-              <h3>What's your tech speciality?</h3>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="coder-css">
-                <label class="form-check-label" for="css">
-                  CSS
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="coder-html">
-                <label class="form-check-label" for="html">
-                  HTML
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="coder-javascript">
-                <label class="form-check-label" for="javascript">
-                  JavaScript
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="node">
-                <label class="form-check-label" for="node">
-                  Node.js
-                </label>
-              </div>
-              <br>  
+                <h3>Who are you?</h3>
+                <h5>I am a...</h5>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="usertype" id="worker" value="option1" checked onclick="HIDER()">
+                  <label class="form-check-label" for="worker">
+                    Worker
+                  </label>
+                </div>
+                <div class="form-check" >
+                  <input class="form-check-input" type="radio" name="usertype" id="coderbutton" value="option2" onclick="revealCoderQuestion()" >
+                  <label class="form-check-label" for="coder">
+                    Coder
+                  </label>
+                </div>
+                <div class="form-check" >
+                  <input class="form-check-input" type="radio" name="usertype" id="patron" value="option3" onclick="HIDER()">
+                  <label class="form-check-label" for="patron" >
+                    Patron
+                  </label>
+                </div>
+                <br>
+                <div id="questionhider" class="container" style="display:none" >
+                  <h3>What's your tech speciality?</h3>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="coder-css">
+                    <label class="form-check-label" for="css">
+                      CSS
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="coder-html">
+                    <label class="form-check-label" for="html">
+                      HTML
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="coder-javascript">
+                    <label class="form-check-label" for="javascript">
+                      JavaScript
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="node">
+                    <label class="form-check-label" for="node">
+                      Node.js
+                    </label>
+                  </div>
+                  <br>
+                </div>
               <!-- Commented out for now since last question does this job -->
               <!-- <div class="form-group">
                 <label for="coderTech">Example select</label>
@@ -135,6 +148,29 @@
         </div>
       </div>
     </div>
+
+    <script>
+    function revealCoderQuestion() {
+      var checkBox = document.getElementById("coderbutton");
+      var text = document.getElementById("questionhider");
+        if (checkBox.checked == true){
+          text.style.display = "block";
+        } else {
+          text.style.display = "none";
+        }
+    }
+    
+    
+    function HIDER() {
+      var checkBox = document.getElementById("coderbutton");
+      var text = document.getElementById("questionhider");
+      text.style.display = "none";
+    }
+    </script>
+      
+      
+    </script>
+
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
   
   var password = document.getElementById("password")
@@ -151,6 +187,26 @@
   password.onchange = validatePassword;
   confirm_password.onkeyup = validatePassword;
   
+  </script>
+
+
+  
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script type="text/javascript" src="../config/pwverif.js"></script>
+  <script>
+    $(document).ready(function() {
+      $("#password").passwordValidation({"confirmField": "#password_confirm"}, function(element, valid, match, failedCases) {
+  
+          $("#errors").html("<pre>" + failedCases.join("\n") + "</pre>");
+        
+           if(valid) $(element).css("border","2px solid green");
+           if(!valid) $(element).css("border","2px solid red");
+           if(valid && match) $("#password_confirm").css("border","2px solid green");
+           if(!valid || !match) $("#password_confirm").css("border","2px solid red");
+      });
+    });
+  </script>
+ 
   </script>
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
