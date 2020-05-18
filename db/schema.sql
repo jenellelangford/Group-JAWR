@@ -4,7 +4,7 @@ CREATE DATABASE light_db;
 USE light_db;
 
 CREATE TABLE users (
-  id INTEGER AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  id INTEGER AUTO_INCREMENT PRIMARY KEY,
   avatar_src VARCHAR(40),
   first_name VARCHAR(40),
   last_name VARCHAR(40),

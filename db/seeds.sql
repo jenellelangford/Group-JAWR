@@ -10,13 +10,12 @@ VALUES ("Rachel", "Murray", "dcbeergoddess@gmail.com", "test", "test", "@dcbeerg
 
 
 INSERT INTO workers (requests, skills, user_id)
-VALUES ("website", "drinking", 0),
-("Foreign Key explanation","Pyromania",1),
-("Bees!","Bees!",2);
+VALUES ("website", "drinking", 1),
+("Foreign Key explanation","Pyromania", 2),
+("Bees!","Bees!", 3);
 
-INSERT INTO coders (speciality,user_id)
-VALUES ("Whole-stack Development", 3),
-VALUES ("CSS",4);
+INSERT INTO coders (speciality, user_id)
+VALUES ("Whole-stack Development", 4), ("CSS", 5);
 
 INSERT INTO patrons (user_id)
-VALUES (5);
+VALUES (6);
