@@ -4,85 +4,82 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group JAWR</title>
-  <link rel="stylesheet" href="../Group-JAWR/public/assets/css/style.css">
+
+  <!-- CSS LINK -->
+  <link rel="stylesheet" href="../../Group-JAWR/public/assets/css/style.css">
+
+  <!-- BOOTSTRAP LINKS-->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+ 
+  <!-- GOOGLE FONT LINKS -->
+  <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Montserrat:ital,wght@1,300&display=swap" rel="stylesheet">
+  
+  <!-- LOGO IN ADDRESS BAR LINKS -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../favicon/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon/android-chrome-512x512.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-32x32.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+
 </head>
 <body>
-<!--NAVBAR HEADER-->
-  <div id="navbar">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
- <!--<a class="navbar-brand" href="#">GROUP JAWR</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button> -->
 
-  <div class="collapse navbar-collapse" id="navbar-buttons">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">LOG IN <span class="sr-only">(current)</span></a>
-      </li>
+<!--JUMBOTRON-->
+ <div id="jumbotron" class="jumbotron jumbotron-fluid"> 
 
-      <li class="nav-item active">
-        <a class="nav-link" href="#">WORKER <span class="sr-only">(current)</span></a>
-      </li>
-
-      <li class="nav-item active">
-        <a class="nav-link" href="#">CODER <span class="sr-only">(current)</span></a>
-      </li>
+<!--LOGO-->
+    <div id="header">
+      <img id="logo-img" src="../public/assets/images/GroupJawr_Logo_B.png" alt="GROUP JAWR Logo">
+    </div>
 
 
-      <li class="nav-item active">
-        <a class="nav-link" href="#">BECOME A DONOR <span class="sr-only">(current)</span></a>
-      </li>
-    </ul>
-  </div>
-    </nav>
+<!--WORKER CARD-->
+<div id="home-row" class="row">
+  <div class="worker-card" style="width: 60rem;">
+      <div class="card-body">
+        <h5 class="home-card-title">WORKER</h5> 
+          <ul>
+            <button type="button" class="btn btn-light">LOG IN</button>
+            <button type="button" class="btn btn-light">CREATE PROFILE</button>
+          </ul>
+      </div>
+    </div>
   </div>
 
-  <h1>GROUP JAWR</h1>
+<!--CODER CARD-->
+  <div id="home-row" class="row">
+    <div class="coder-card" style="width: 60rem;">
+      <div class="card-body">
+        <h5 class="home-card-title">CODER</h5>
+          <ul>
+            <button type="button" class="btn btn-light">LOG IN</button>
+            <button type="button" class="btn btn-light">FIND CODER</button>
+            <button type="button" class="btn btn-light">CREATE PROFILE</button>
+          </ul>
+      </div>
+    </div>
+  </div>
+  
+  <!--DONOR CARD-->
+  <div id="home-row" class="row">
+    <div class="donor-card" style="width: 60rem;">
+      <div class="card-body">
+        <h5 class="home-card-title">DONOR</h5>
+          <ul>
+            <button type="button" class="btn btn-light">FIND WORKER</button>
+          </ul>
+      </div>
+    </div>
+  </div>
+  
+  
 
 <!--BODY CONTAINER-->
   <div id="flex-container" class="container">
     
-
-<!--WORKER CARD-->
-<div class="row">
-<div class="card" style="width: 50rem;">
-    <div class="card-body">
-      <h5 class="card-title">WORKER</h5> 
-        <ul>
-          <li><a href="#" class="card-link">SIGN IN</a></li>
-          <li><a href="#" class="card-link">SET UP PROFILE</a></li>
-        </ul>
-    </div>
-  </div>
-</div>
-  <!--CODER CARD-->
-<div class="row">
-  <div class="card" style="width: 50rem;">
-    <div class="card-body">
-      <h5 class="card-title">CODER</h5>
-        <ul>
-          <li><a href="#" class="card-link">SIGN IN</a></li>
-          <li><a href="#" class="card-link">FIND WORKERS</a></li>
-          <li><a href="#" class="card-link">SET UP PROFILE</a></li>
-        </ul>
-    </div>
-  </div>
-</div>
-
-<!--DONOR CARD-->
-<div class="row">
-  <div class="card" style="width: 50rem;">
-    <div class="card-body">
-      <h5 class="card-title">DONOR</h5>
-        <ul>
-          <li><a href="#" class="card-link">FIND WORKER</a></li>
-        </ul>
-    </div>
-  </div>
-</div>
-    </div>
 
 
 
