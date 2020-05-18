@@ -62,28 +62,28 @@ app.get("/coderpage",function(req,res){
   });
 });
 // POST/CREATE NEW WORKER ("api/workers")
-app.post("api/workers",function(req,res){
-  userData = {
-    first_name = req.body.first_name,
-    last_name = req.body.last_name,
-    email = req.body.email,
-    user_desc = req.body.desc,
-    password = req.body.password,
-    venmo = req.body.venmo,
-    location = req.body.location,
-  };//Common 
-  workerData = {
-    skills = req.body.skills,
-    link = req.body.link
-  };
-  connection.query(`INSERT INTO users (${userQuery}) VALUES(?)`,[Object.values(userData)],function(err,resQueryUser){
-    if(err) throw err;
-    //get the ID of that new object
-    connection.query(`INSERT INTO workers (user_id, skills, personal_link) VALUES(?)`, [id,workerData.skills,workerData.link],function(err,resQueryWorker){
-      res.redirect("/workerpage");
-    });
-  });
-});
+// app.post("api/workers",function(req,res){
+//   userData = {
+//     first_name = req.body.first_name,
+//     last_name = req.body.last_name,
+//     email = req.body.email,
+//     user_desc = req.body.desc,
+//     password = req.body.password,
+//     venmo = req.body.venmo,
+//     location = req.body.location,
+//   };//Common 
+//   workerData = {
+//     skills = req.body.skills,
+//     link = req.body.link
+//   };
+//   connection.query(`INSERT INTO users (${userQuery}) VALUES(?)`,[Object.values(userData)],function(err,resQueryUser){
+//     if(err) throw err;
+//     //get the ID of that new object
+//     connection.query(`INSERT INTO workers (user_id, skills, personal_link) VALUES(?)`, [id,workerData.skills,workerData.link],function(err,resQueryWorker){
+//       res.redirect("/workerpage");`
+//     });
+//   });
+// });
 // POST/CREATE NEW CODER ("api/coders")
 // POST/CREATE NEW PATRON ("api/patrons")
 // UPDATE WORKER ("api/workers/:id")

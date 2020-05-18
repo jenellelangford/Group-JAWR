@@ -4,8 +4,8 @@ module.exports = {
     host: "localhost",
     port: 3306,
     user: "root",
-    password: "",
-    database: ""
+    password: "password",
+    database: "light_db"
   },
   production: {
     host: "",
