@@ -5,12 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Find A Coder</title>
 
-  <!-- We link our html to the Bootstrap CDN -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!--CSS -->
+  <link rel="stylesheet" href="../public/assets/css/style.css">
+
+  <!-- BOOTSTRAP LINKS-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+ 
+  <!-- GOOGLE FONT LINKS -->
   <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Montserrat:ital,wght@1,300&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../public/assets/css/style.css">
+  
+  <!-- LOGO IN ADDRESS BAR -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../favicon/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon/android-chrome-512x512.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-32x32.png">
+  <link rel="manifest" href="/site.webmanifest">
+
   
 </head>
 <body>
@@ -18,7 +30,6 @@
 
 <div id="navbar">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-
 
   <div class="navbar" id="navbar-buttons">
     <ul class="navbar-nav mr-auto">
@@ -40,18 +51,23 @@
       </li>
     </ul>
   </div>
+
 </nav>
 </div>
 
-<div class="row">
-<h1 class="display-4">GROUP JAWR</h1>
+
+<!--<div class="row">-->
+  <!--LOGO-->
+<div id="header">
+  <img id="logo-img" src="../public/assets/images/GroupJawr_Logo_B.png" alt="GROUP JAWR Logo">
 </div>
+
 
 <!--WORKER CONTAINER-->
 <div class="container">
-  <div class="row">
+  <div id="worker-row" class="row">
     <div class="row row-cols-1 row-cols-md-2">
-      <div class="col mb-4">
+      <div class="col mb-6">
         <div id="html-worker-cards" class="html-worker-cards">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRxFTfDWP1_UzRnpPSdI4Ue5ZZ-0uHLAuiJt-w5YtNjM2VMcZW0&usqp=CAU/200x200" class="card-img-top" alt="Profile Picture">
           <div class="card-body">
@@ -67,24 +83,7 @@
         </div>
       </div>
 
-      <div class="col mb-4">
-        <div id="html-worker-cards" class="html-worker-cards">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRxFTfDWP1_UzRnpPSdI4Ue5ZZ-0uHLAuiJt-w5YtNjM2VMcZW0&usqp=CAU/200x200" class="card-img-top" alt="Profile Picture">
-          <div class="card-body">
-            <h5 class="card-title-wp">Card title</h5>
-            <ul id="worker-list">
-              <li><a href="#" class="card-link">Venmo</a></li>
-              <li>Location:</li>
-              <li>Technology Needs:</li>
-              <li>Special Skills:</li>
-            </ul>
-
-          </div>
-        </div>
-      </div>
-
-
-      <div class="col mb-4">
+      <div class="col mb-6">
         <div id="html-worker-cards" class="html-worker-cards">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRxFTfDWP1_UzRnpPSdI4Ue5ZZ-0uHLAuiJt-w5YtNjM2VMcZW0&usqp=CAU/200x200" class="card-img-top" alt="Profile Picture">
           <div class="card-body">
@@ -101,10 +100,11 @@
       </div>
     </div>
   </div>
+
       
-  <div class="row">
+  <div id="worker-row" class="row">
     <div class="row row-cols-1 row-cols-md-2">
-      <div class="col mb-4">
+      <div class="col mb-6">
         <div id="html-worker-cards" class="html-worker-cards">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRxFTfDWP1_UzRnpPSdI4Ue5ZZ-0uHLAuiJt-w5YtNjM2VMcZW0&usqp=CAU/200x200" class="card-img-top" alt="Profile Picture">
           <div class="card-body">
@@ -120,7 +120,7 @@
         </div>
       </div>
 
-      <div class="col mb-4">
+      <div class="col mb-6">
         <div id="html-worker-cards" class="html-worker-cards">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRxFTfDWP1_UzRnpPSdI4Ue5ZZ-0uHLAuiJt-w5YtNjM2VMcZW0&usqp=CAU/200x200" class="card-img-top" alt="Profile Picture">
           <div class="card-body">
@@ -136,21 +136,6 @@
         </div>
       </div>
 
-      <div class="col mb-4">
-        <div id="html-worker-cards" class="html-worker-cards">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRxFTfDWP1_UzRnpPSdI4Ue5ZZ-0uHLAuiJt-w5YtNjM2VMcZW0&usqp=CAU/200x200" class="card-img-top" alt="Profile Picture">
-          <div class="card-body">
-            <h5 class="card-title-wp">Card title</h5>
-            <ul id="worker-list">
-              <li><a href="#" class="card-link">Venmo</a></li>
-              <li>Location:</li>
-              <li>Technology Needs:</li>
-              <li>Special Skills:</li>
-            </ul>
-
-          </div>
-        </div>
-      </div>
     </div>
   </div>
   

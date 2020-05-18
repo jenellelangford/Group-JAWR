@@ -1,12 +1,20 @@
 /* HOME PAGE */
+
+#logo-img {
+  width: 500px;
+  height: 300px;
+  margin :auto;
+  display: block;
+  padding-bottom: 20px;
+}
+
 #jumbotron {
-  /*background-color: #FDF5E6; */
-  background-image: url("https://images.unsplash.com/photo-1516541196182-6bdb0516ed27?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80");
+  background-image: url("https://images.unsplash.com/photo-1571930998657-9ada0e8fe694?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80");
+  
 }
 
 body {
-  /*background-color: #FDF5E6; */
-  background-image: url("https://images.unsplash.com/photo-1516541196182-6bdb0516ed27?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80");
+  background-image: url("https://images.unsplash.com/photo-1571930998657-9ada0e8fe694?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80");
 }
 
 h1 {
@@ -20,8 +28,12 @@ h1 {
   padding: 10px; 
 }
 
+#home-row {
+  justify-content: center;
+}
+
 .worker-card {
-  background-image: url("https://images.unsplash.com/photo-1509669803555-fd5edd8d5a41?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
+  background-image: url("../images/Screen\ Shot\ 2020-05-17\ at\ 6.34.48\ PM.png");
   margin: 10px auto; 
   float: none; 
   padding: 10px;
@@ -36,7 +48,7 @@ h1 {
 }
 
 .donor-card {
-  background-image: url("https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
+  background-image: url("../images/Screen\ Shot\ 2020-05-17\ at\ 6.33.15\ PM.png");
   margin: 10px auto; 
   float: none; 
   padding: 10px;
@@ -63,15 +75,19 @@ h5 {
 }
 
 .container {
-  justify-content: center;
   justify-content: space-evenly;
+  justify-content: space-around;
   background-color: whitesmoke;
 }
 
-.html-worker-cards {
-  justify-content: center;
+#worker-row {
   justify-content: space-evenly;
-  width: 250px;
+  justify-content: space-around;
+}
+
+.html-worker-cards {
+  justify-content: space-evenly;
+  width: 300px;
   padding: 0 auto;
   margin: 20px 50px 50px 50px; 
   float: none; 
