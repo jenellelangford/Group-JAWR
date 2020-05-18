@@ -8,15 +8,19 @@
   <!-- We link our html to the Bootstrap CDN -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="../public/assets/css/style.css">
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
   
 
-  <!-- Handy Dandy Coder Question Hider-->
+
   <style>
+  /* Hand dandy coder question hider */
   #questionhider {
-
   display:none;
-  
+  }
+  /* hide ugly buttons-- we're a MODERN website */
+  #imageUpload{
+    display: none;
   }
   </style>
 
@@ -30,38 +34,42 @@
             <form>
               <div class="form-group">
               <h3>Create Your Account:</h3>
+              <p><span class="required">*</span> = required field</p>
               <div class="form-group">
-                <label for="email"><h6>Email address</h6></label>
-                  <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                <label for="email"><h6>Email address:</h6></label><span class="required">*</span>
+                  <input type="email" class="form-control" id="email" placeholder="name@example.com" autocomplete="on" required>
               </div>
               <div class="container-stacked">
-                <label for="password"><h6>Create Password:</h6></label>
+                <label for="password"><h6>Create Password:<span class="required">*</span></h6></label>
                   <input name="password" required="required" type="password" id="password">
-                <label for="password_confirm"><h6>Confirm Password:</h6></label>
+                <label for="password_confirm"><h6>Confirm Password:<span class="required">*</span></h6></label>
                   <input name="password_confirm" required="required" type="password" id="password_confirm">
               </div>
               <div id="errors" class="well"></div>
               <div class="form-group">
               <h3>Tell us about yourself!</h3>
-                <label for="firstName" class="control-label"><h6>First Name</h6></label>
-                  <input type="name" class="form-control" id="firstName" placeholder="Jane">
+                <label for="firstName" class="control-label"><h6>First Name:<span class="required">*</span></h6></label>
+                  <input type="name" class="form-control" id="firstName" placeholder="Jane" autocomplete="on" required>
               </div>
               <div class="form-group">
-                <label for="lastName" class="control-label"><h6>Last Name</h6></label>
-                  <input type="name" class="form-control" id="lastName" placeholder="Smith">
+                <label for="lastName" class="control-label"><h6>Last Name:<span class="required">*</span></h6></label>
+                  <input type="name" class="form-control" id="lastName" placeholder="Smith" autocomplete="on" required>
               </div>
               <div class="form-group">
-                <label for="location" class="control-label"><h6>Location</h6></label>
-                  <input type="text" class="form-control" id="location" placeholder="Anytown, VA">
+                <label for="location" class="control-label"><h6>Location:<span class="required">*</span></h6></label>
+                  <input type="text" class="form-control" id="location" placeholder="Anytown, VA" required>
               </div>
               <div class="form-group">
                 <h3>Upload an avatar!</h3>
-                  <label for="avatar">It can be a picture of you, or just something you love.<br>  
-                    Don't worry if you're unsure, you'll be able to add one or change it later.</label>
-                  <input type="file" class="form-control-file" id="avatar">
+                <image id="profileImage" src="../public/assets/images/default_avatar.png" />
+                <input id="imageUpload" type="file" 
+                       name="profile_photo" placeholder="Photo" required="" capture>
+                  <label for="avatar">Click the image to change your avatar.</label>
+                  <p>It can be a picture of you, or just something you love.<br>  
+                    Don't worry if you're unsure, you'll be able to add one or change it later.</p>
                 </div>
                 <h3>Who are you?</h3>
-                <h5>I am a...</h5>
+                <h8>I am a...<span class="required">*</span></h8>
                 <div class="form-check">
                   <input class="form-check-input" type="radio" name="usertype" id="worker" value="option1" checked onclick="HIDER()">
                   <label class="form-check-label" for="worker">
@@ -150,6 +158,8 @@
     </div>
 
     <script>
+// these two functions hide coder question unless user checks 'is coder'
+// probably a cleaner/more efficient way to do this but
     function revealCoderQuestion() {
       var checkBox = document.getElementById("coderbutton");
       var text = document.getElementById("questionhider");
@@ -159,8 +169,6 @@
           text.style.display = "none";
         }
     }
-    
-    
     function HIDER() {
       var checkBox = document.getElementById("coderbutton");
       var text = document.getElementById("questionhider");
@@ -168,10 +176,8 @@
     }
     </script>
       
-      
-    </script>
 
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
   
   var password = document.getElementById("password")
     , confirm_password = document.getElementById("confirm_password");
@@ -187,8 +193,30 @@
   password.onchange = validatePassword;
   confirm_password.onkeyup = validatePassword;
   
-  </script>
 
+  </script>
+<script type="text/javascript">
+  $("#profileImage").click(function(e) {
+      $("#imageUpload").click();
+  });
+  
+  function previewProfileImage( uploader ) {   
+      //ensure a file was selected 
+      if (uploader.files && uploader.files[0]) {
+          var imageFile = uploader.files[0];
+          var reader = new FileReader();    
+          reader.onload = function (e) {
+              //set the image data as source
+              $('#profileImage').attr('src', e.target.result);
+          }    
+          reader.readAsDataURL( imageFile );
+      }
+  }
+  
+  $("#imageUpload").change(function(){
+      previewProfileImage( this );
+  });
+  </script>
 
   
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
