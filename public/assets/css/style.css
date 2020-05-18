@@ -17,18 +17,10 @@ body {
   background-image: url("https://images.unsplash.com/photo-1491902761018-cac1cd4df4ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1864&q=80");
 }
 
-
-
-h1 {
-  text-align: center;
-  font-family: 'Monoton', cursive;
-  margin-bottom: 50px;
-}
-
-
 #home-row {
   justify-content: center;
 }
+
 .home-card-title {
   font-size: 40px;
   font-weight: bolder;
@@ -39,7 +31,6 @@ h1 {
   margin: 10px auto; 
   float: none; 
   padding: 10px;
-  
 }
 
 .coder-card {
@@ -51,12 +42,6 @@ h1 {
 
 .donor-card {
   background-image: url("../images/Screen\ Shot\ 2020-05-17\ at\ 6.33.15\ PM.png");
-
-.card {
-
-  margin: 10px auto; 
-  float: none; 
-  padding: 10px;
 }
 
 ul {
@@ -67,14 +52,19 @@ ul {
 
 h5 {
   text-align: center;
+  color: white;
+  font-style: bold;
   font-family: 'Montserrat', sans-serif;
   font-size: 30px;
 }
 
 /* WORKER PAGE */
 
-.container {
+#navbar {
+  background-color: #FFFAF0;
+}
 
+.container {
   justify-content: space-evenly;
   justify-content: space-around;
   background-color: whitesmoke;
@@ -91,6 +81,7 @@ h5 {
 
   justify-content: center;
 }
+
 .worker-card {
   width: 400px;
   padding: 0 auto;
@@ -103,6 +94,14 @@ h5 {
   font-family: 'Montserrat', sans-serif;
 }
 
+.card-title-wp {
+  text-align: center;
+  color: black;
+  font-style: bold;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+}
+
 worker-list {
   list-style: none;
   text-align: center;
@@ -110,7 +109,7 @@ worker-list {
 
 
 
-/* ======= */
+/*
 h1 {
   text-align: center;
 }
@@ -118,10 +117,11 @@ h1 {
 flex-container {
   align-content: center;
 }
+
  .card-body{
   padding: 50px;
-
  }
+
 ul {
   list-style-type: none;
 }
@@ -138,33 +138,5 @@ card {
   text-align: center;
 }
 
+*/
 
-
-/* INPUT FORM PAGE */
-.required
-{
-    color: red;
-}
-#profileImage
-{
-    cursor: pointer;
-    width: 150px;
-    height: 150px;
-    overflow: hidden;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
-    border-radius: 50%;
-}
-
-#profile-container {
-    width: 150px;
-    height: 150px;
-    overflow: hidden;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
-    border-radius: 50%;
-}
