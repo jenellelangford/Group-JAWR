@@ -39,3 +39,4 @@ CREATE TABLE coders (
     user_id INT,
     FOREIGN KEY (user_id)
         REFERENCES users (id)
+);
