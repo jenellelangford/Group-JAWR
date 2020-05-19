@@ -6,7 +6,7 @@
     <img id="logo-img" src="/assets/images/GroupJawr_Logo_B.png" alt="GROUP JAWR Logo">
   </div>
 
-
+  <h1>LIGHT AT THE END OF THE TUNNEL</h1>
   <!--WORKER CARD-->
   <div id="home-row" class="row">
     <div class="worker-card" style="width: 60rem;">
@@ -14,7 +14,10 @@
         <h5 class="home-card-title">WORKER</h5>
         <ul>
           {{!-- <button type="button" class="btn btn-light">LOG IN</button> --}}
-          <button type="button" class="btn btn-light">CREATE PROFILE</button>
+          <a href="/createprofile">
+          <button type="button" class="btn btn-light">CREATE PROFILE</button></a>
+          <a href="/coders"><button type="button" class="btn btn-light">FIND CODER</button>
+          </a>
         </ul>
       </div>
     </div>
@@ -27,8 +30,10 @@
         <h5 class="home-card-title">CODER</h5>
         <ul>
           {{!-- <button type="button" class="btn btn-light">LOG IN</button> --}}
-          <button type="button" class="btn btn-light">FIND WORKER</button>
+          <a href="/workers"><button type="button" class="btn btn-light">FIND WORKER</button></a>
+          <a href="/createprofile">
           <button type="button" class="btn btn-light">CREATE PROFILE</button>
+          </a>
         </ul>
       </div>
     </div>
@@ -40,8 +45,10 @@
       <div class="card-body">
         <h5 class="home-card-title">DONOR</h5>
         <ul>
-          <button type="button" class="btn btn-light">FIND WORKER</button>
+          <a href="/workers"><button type="button" class="btn btn-light">FIND WORKER</button></a>
+          <a href="/createprofile">
           <button type="button" class="btn btn-light">CREATE PROFILE</button>
+          </a>
 
         </ul>
       </div>
