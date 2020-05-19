@@ -117,7 +117,7 @@ h5 {
       <div class="container">
         <div class="row">
           <div class="col-12">
-            <form>
+            <form id="newUser">
               <div class="form-group">
               <h3>Create Your Account:</h3>
               <p><span class="required">*</span> = required field</p>
@@ -153,9 +153,9 @@ h5 {
               </div>
               <div class="form-group">
                 <h3>Upload an avatar!</h3>
-                <image id="profileImage" src="/assets/images/default_avatar.png" />
+                <image id="profileImage" src="/public/assets/images/default_avatar.png" />
                 <input id="imageUpload" type="file" 
-                      placeholder="Photo" required="" capture name="avatar_src">
+                      placeholder="Photo" required="" name="avatar_src" capture >
                   <label for="avatar">Click the image to change your avatar.</label>
                   <p>It can be a picture of you, or just something you love.<br>  
                     Don't worry if you're unsure, you'll be able to add one or change it later.</p>
@@ -163,19 +163,19 @@ h5 {
                 <h3>Who are you?</h3>
                 <h8>I am a...<span class="required">*</span></h8>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="usertype" id="worker" value="option1" checked onclick="HIDER()" name="is_worker">
+                  <input class="form-check-input" type="radio" name="usertype" id="worker" value="isworker" checked onclick="HIDER()" name="is_worker">
                   <label class="form-check-label" for="worker">
                     Worker
                   </label>
                 </div>
                 <div class="form-check" >
-                  <input class="form-check-input" type="radio" name="usertype" id="coderbutton" value="option2" onclick="revealCoderQuestion()" name="is_coder">
+                  <input class="form-check-input" type="radio" name="usertype" id="coderbutton" value="iscoder" onclick="revealCoderQuestion()" name="is_coder">
                   <label class="form-check-label" for="coder">
                     Coder
                   </label>
                 </div>
                 <div class="form-check" >
-                  <input class="form-check-input" type="radio" name="usertype" id="patron" value="option3" onclick="HIDER()" name="is_patron">
+                  <input class="form-check-input" type="radio" name="usertype" id="patron" value="ispatron" onclick="HIDER()" name="is_patron">
                   <label class="form-check-label" for="patron" >
                     Patron
                   </label>
@@ -227,7 +227,7 @@ h5 {
                   <option>Social media</option>
                 </select>
               </div>
-              <div class="form-group">
+              <div class="form-g`roup">
                 <label for="moreinfo"><h6>What else would you like to accomplish?</h6></label>
                 <textarea class="form-control" id="moreinfo" rows="3" name="user_desc_extended"></textarea>
               </div>
@@ -257,7 +257,8 @@ h5 {
     </script>
       
 
-<!-- post to sql database -->
+
+<!-- boilerplate stuff ignore this -->
 <script type="text/javascript">
 
 const mysql = require('mysql');
@@ -271,15 +272,91 @@ const con = mysql.createConnection({
 con.connect(function(err) {
   if (err) throw err;
   console.log("connected to host");
-  let sql = "INSERT INTO "
-})
+  start();
+});
+// ~~~~~~~~~~~~~~~~~~~~~~~~
 
+// STAGE 1
+// function/listener code for submit button
 
+// code for the listener. this is supposed to grab data from the whole form (the form id is newUser in html) and then run
+// the createAccount function with the data collected from that element.
+document.getElementById("newUser").addEventListener("submit", createAccount(data));
 
+// STAGE 2
+// site checks what type of user (it's a radio they select) and then goes down the appropriate path, keeping the (data) with it.
+function createAccount (data) {
+    // postToUser(data)
+  // based on their answer, post to the right table
+  if (data.isworker.checked == true){
+    postToWorker(data);
+  }
+  if (data.iscoder.checked == true){
+    postToCoder(data);
+  }
+  if (data.ispatron.checked == true){
+    postToCoder(data);
+  }
+}
+
+// STAGE 3
+// Insert collected new user data into their proper table.  Only need one to do the others of course.
+
+function postToWorker(data) {
+  connection.query(
+    "INSERT INTO workers (avatar_src, first_name, last_name, email, user_desc, user_password, user_venmo, user_location) VALUES ?", [data.avatar_src, data.first_name, data.last_name, data.email, data.user_desc, data.user_password, data.user_venmo, data.user_location],
+  // error catcher and confirmation messages
+  function(err) {
+    if (err) throw err;
+    console.log("New user added to the database successfully.");
+    alert("Your account was created successfully!");
+      // return user home -- will fill in home page later
+      window.location.replace("home page")
+  })
+}
 
 
 </script>
 <!-- end -->
+
+
+
+
+<!-- begin code scrap heap
+<script type="text/javascript"> $
+(function(){
+  $("#newUser").on("submit", function(event) {
+    event.preventDefault();
+
+    // [name=first_name will find an element with a name attribute equal to the string "newUser"]
+    let newUser = {
+      first_name: $("#first_name").val().trim(),
+      last_name: $("#last_name").val().trim(),
+    };
+
+    // Send the POST request.
+    $.ajax("/api/users"), {
+      type: "POST",
+      data: newUser
+    }).then(
+      function() {
+        console.log("created new user");
+        
+      }
+
+    )
+    }
+  // 
+})
+</script>
+
+end code scrap heap --> 
+
+
+
+
+
+
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
   
