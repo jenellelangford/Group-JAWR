@@ -8,7 +8,6 @@
   <!-- We link our html to the Bootstrap CDN -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="../public/assets/css/style.css">
   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
   
 
@@ -22,6 +21,34 @@
   #imageUpload{
     display: none;
   }
+.required
+{
+    color: red;
+}
+#profileImage
+{
+    cursor: pointer;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+}
+
+#profile-container {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+}
+
   </style>
 
 </head>
@@ -58,6 +85,12 @@
               <div class="form-group">
                 <label for="location" class="control-label"><h6>Location:<span class="required">*</span></h6></label>
                   <input type="text" class="form-control" id="location" placeholder="Anytown, VA" required>
+              </div>
+              <!-- put in a small divider here-->
+              <hr>
+              <div class="form-group">
+                <label for="location" class="control-label"><h6>Venmo Username (optional)</h6></label>
+                  <input type="text" class="form-control" id="user_venmo" type="email" placeholder="@VenmoUser621">
               </div>
               <div class="form-group">
                 <h3>Upload an avatar!</h3>
@@ -117,16 +150,6 @@
                   </div>
                   <br>
                 </div>
-              <!-- Commented out for now since last question does this job -->
-              <!-- <div class="form-group">
-                <label for="coderTech">Example select</label>
-                <select class="form-control" id="exampleFormControlSelect1">
-                  <option>HTML</option>
-                  <option>CSS</option>
-                  <option>JavaScript</option>
-                  <option>NODE</option>
-                </select>
-              </div> -->
               <h3>Just a few more questions:</h3>
               <label for="talent"><h6>I have a secret talent for...</h6></label>
               <div class="form-group">
@@ -158,8 +181,6 @@
     </div>
 
     <script>
-// these two functions hide coder question unless user checks 'is coder'
-// probably a cleaner/more efficient way to do this but
     function revealCoderQuestion() {
       var checkBox = document.getElementById("coderbutton");
       var text = document.getElementById("questionhider");
@@ -201,12 +222,10 @@
   });
   
   function previewProfileImage( uploader ) {   
-      //ensure a file was selected 
       if (uploader.files && uploader.files[0]) {
           var imageFile = uploader.files[0];
           var reader = new FileReader();    
           reader.onload = function (e) {
-              //set the image data as source
               $('#profileImage').attr('src', e.target.result);
           }    
           reader.readAsDataURL( imageFile );
