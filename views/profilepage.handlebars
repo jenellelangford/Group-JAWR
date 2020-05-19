@@ -1,0 +1,20 @@
+<div id="viewport">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <img src="{{avatar_src}}" class="card-img-top" alt="Profile Picture">
+                    <div class="card-body">
+                    <h5 class="card-title-wp">{{first_name}} {{last_name}}</h5>
+                    <ul id="worker-list">
+                    {{!-- Make in to Venmo link --}}
+                    <li>Venmo: {{user_venmo}}</li>
+                    <li>Location: {{user_location}}</li>
+                    <li>Bio: {{user_desc}}</li>
+                    <li>Email: <span><a href={{email}}></a></span>{{email}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
