@@ -1,4 +1,23 @@
+/* NAVBAR */
+.navbar-brand {
+  margin: 0;
+  padding: 0;
+}
+
+.logo {
+  height: 30px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
 /* HOME PAGE */
+h1 {
+  font-family: 'Staatliches', cursive;
+  font-size: 25px;
+  text-align: center;
+  margin: 0 auto;
+
+}
 
 #logo-img {
   width: 500px;
