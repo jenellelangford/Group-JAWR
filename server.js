@@ -47,17 +47,18 @@ app.get("/",function(req,res){
 // GET/RENDER WORKER PAGE | WORKER HANDLEBARS
 app.get("/workers",function(req,res){
   connection.query("SELECT * FROM workers INNER JOIN users ON workers.user_id = users.id",function(err, resQuery){
-    // if (err) throw err;
+    if (err) throw err;
     // const workers = {
     //   workerArray: resQuery
     // };
-    res.render("workerpage", {  workers:resQuery  });
+    res.render("workerpage", { workers:resQuery } );
   });
 });
 
 // GET/RENDER CODER PAGE | CODER HANDLEBARS
 app.get("/coders",function(req,res){
-  connection.query("SELECT * FROM coders INNER JOIN coders ON coders.user_id = users.id", function(err,resQuery){
+  connection.query("SELECT * FROM coders INNER JOIN users ON coders.user_id = users.id", function(err,resQuery){
+    if (err) throw err;
     // coders = {
     //   coderArray: resQuery
     // };
