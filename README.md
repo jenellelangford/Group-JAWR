@@ -48,8 +48,8 @@ Install dependencies using command below
 ## Credits
 
 ### Collaborators
-* [@jenelle](https://github.com/jenellelangford) :cat: ![GitHub followers](https://img.shields.io/github/followers/nmhayne?label=Follow&style=social)
-* [@andrew](https://github.com/tanksareforcowards) :tiger: ![GitHub followers](https://img.shields.io/github/followers/aftongauntlett?label=Follow&style=social)
+* [@jenelle](https://github.com/jenellelangford) :cat: ![GitHub followers](https://img.shields.io/github/followers/jenellelangford?label=Follow&style=social)
+* [@andrew](https://github.com/tanksareforcowards) :tiger: ![GitHub followers](https://img.shields.io/github/followers/tanksareforcowards?label=Follow&style=social)
 * [@william](https://github.com/AvianOverlord) :bird: ![GitHub followers](https://img.shields.io/github/followers/rayfor1?label=Follow&style=social)
 * [@rachel](https://github.com/dcbeergoddess) :dog: ![GitHub followers](https://img.shields.io/github/followers/dcbeergoddess?label=Follow&style=social)
 
