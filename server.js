@@ -43,17 +43,20 @@ const userQuery = "first_name, last_name, email, user_desc, user_password, user_
 app.get("/",function(req,res){
   res.render("index",null);
 });
+
 // GET/RENDER WORKER PAGE | WORKER HANDLEBARS
 app.get("/workers",function(req,res){
-  connection.query("SELECT * FROM users INNER JOIN workers ON id = user_id",function(err, resQuery){
-    workers = {
-      workerArray: resQuery
-    };
-    res.render("workerpage",workers);
+  connection.query("SELECT * FROM workers INNER JOIN users ON workers.user_id = users.id",function(err, resQuery){
+    // if (err) throw err;
+    // const workers = {
+    //   workerArray: resQuery
+    // };
+    res.render("workerpage", {workers:resQuery});
   });
 });
+
 // GET/RENDER CODER PAGE | CODER HANDLEBARS
-app.get("/coderpage",function(req,res){
+app.get("/coders",function(req,res){
   connection.query("SELECT * FROM users INNER JOIN coders ON id = user_id", function(err,resQuery){
     coders = {
       coderArray: resQuery
