@@ -92,10 +92,38 @@ app.get("/coders",function(req,res){
 //     if(err) throw err;
 //     //get the ID of that new object
 //     connection.query(`INSERT INTO workers (user_id, skills, personal_link) VALUES(?)`, [id,workerData.skills,workerData.link],function(err,resQueryWorker){
-//       res.redirect("/workerpage");`
+//       res.redirect("/workerpage");
 //     });
 //   });
 // });
+
+// Create a new coder
+app.post("/api/coders", function(req, res) {
+  connection.query("INSERT INTO users (user) VALUES (?)", [req.body.user], function(err, res) {
+    if (err) throw err; 
+  });
+  connection.query("INSERT INTO coders (docer) VALUES (?)", [req.body.coders], function(err, result) {
+    if (err) throw err; 
+  });
+  
+});
+
+// // Update an tables example
+// app.put("/api/plans/:id", function(req, res) {
+//   connection.query("UPDATE plans SET plan = ? WHERE id = ?", [req.body.plan, req.params.id], function(err, result) {
+//     if (err) {
+//       // If an error occurred, send a generic server failure
+//       return res.status(500).end();
+//     }
+//     else if (result.changedRows === 0) {
+//       // If no rows were changed, then the ID must not exist, so 404
+//       return res.status(404).end();
+//     }
+//     res.status(200).end();
+
+//   });
+// });
+
 // POST/CREATE NEW CODER ("api/coders")
 // POST/CREATE NEW PATRON ("api/patrons")
 // UPDATE WORKER ("api/workers/:id")

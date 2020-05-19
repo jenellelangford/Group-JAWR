@@ -5,7 +5,7 @@ USE light_db;
 
 CREATE TABLE users (
   id INTEGER AUTO_INCREMENT PRIMARY KEY,
-  avatar_src VARCHAR(40),
+  avatar_src VARCHAR(1000),
   first_name VARCHAR(40),
   last_name VARCHAR(40),
   email VARCHAR(40),
@@ -35,7 +35,8 @@ CREATE TABLE patrons (
 CREATE TABLE coders (
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
     speciality VARCHAR(40),
-    skills TEXT,
+    tech_skills TEXT,
+    github VARCHAR(40),
     user_id INT,
     FOREIGN KEY (user_id)
         REFERENCES users (id)
