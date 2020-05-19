@@ -38,32 +38,41 @@ connection.connect(function(err) {
 
 const userQuery = "first_name, last_name, email, user_desc, user_password, user_venmo, user_location";
 
-// ROUTES PSEUDO CODE FOR server.js
+//==============ROUTES=============
+
 // GET/RENDER HOMEPAGE | INDEX.HANDLEBARS | LOGIN PAGE
 app.get("/",function(req,res){
-  res.render("index",null);
+  res.render("index", null);
+});
+
+// GET/RENDER INPUT FORM | CREATE PROFILE
+
+app.get("/createprofile",function(req,res){
+    res.render("inputform", null);
 });
 
 // GET/RENDER WORKER PAGE | WORKER HANDLEBARS
 app.get("/workers",function(req,res){
   connection.query("SELECT * FROM workers INNER JOIN users ON workers.user_id = users.id",function(err, resQuery){
-    // if (err) throw err;
+    if (err) throw err;
     // const workers = {
     //   workerArray: resQuery
     // };
-    res.render("workerpage", {  workers:resQuery  });
+    res.render("workerpage", { workers:resQuery } );
   });
 });
 
 // GET/RENDER CODER PAGE | CODER HANDLEBARS
 app.get("/coders",function(req,res){
-  connection.query("SELECT * FROM coders INNER JOIN coders ON coders.user_id = users.id", function(err,resQuery){
+  connection.query("SELECT * FROM coders INNER JOIN users ON coders.user_id = users.id", function(err,resQuery){
+    if (err) throw err;
     // coders = {
     //   coderArray: resQuery
     // };
     res.render("coderpage", { coders:resQuery } );
   });
 });
+
 // POST/CREATE NEW WORKER ("api/workers")
 // app.post("api/workers",function(req,res){
 //   userData = {

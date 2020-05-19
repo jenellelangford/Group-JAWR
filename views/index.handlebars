@@ -1,60 +1,68 @@
 <!--JUMBOTRON-->
- <div id="jumbotron" class="jumbotron jumbotron-fluid"> 
+<div id="jumbotron" class="jumbotron jumbotron-fluid">
 
-<!--LOGO-->
-    <div id="header">
-      <img id="logo-img" src="/assets/images/GroupJawr_Logo_B.png" alt="GROUP JAWR Logo">
-    </div>
+  <!--LOGO-->
+  <div id="header">
+    <img id="logo-img" src="/assets/images/GroupJawr_Logo_B.png" alt="GROUP JAWR Logo">
+  </div>
 
-
-<!--WORKER CARD-->
-<div id="home-row" class="row">
-  <div class="worker-card" style="width: 60rem;">
+  <h1>LIGHT AT THE END OF THE TUNNEL</h1>
+  <!--WORKER CARD-->
+  <div id="home-row" class="row">
+    <div class="worker-card" style="width: 60rem;">
       <div class="card-body">
-        <h5 class="home-card-title">WORKER</h5> 
-          <ul>
-            <button type="button" class="btn btn-light">LOG IN</button>
-            <button type="button" class="btn btn-light">CREATE PROFILE</button>
-          </ul>
+        <h5 class="home-card-title">WORKER</h5>
+        <ul>
+          {{!-- <button type="button" class="btn btn-light">LOG IN</button> --}}
+          <a href="/createprofile">
+          <button type="button" class="btn btn-light">CREATE PROFILE</button></a>
+          <a href="/coders"><button type="button" class="btn btn-light">FIND CODER</button>
+          </a>
+        </ul>
       </div>
     </div>
   </div>
 
-<!--CODER CARD-->
+  <!--CODER CARD-->
   <div id="home-row" class="row">
     <div class="coder-card" style="width: 60rem;">
       <div class="card-body">
         <h5 class="home-card-title">CODER</h5>
-          <ul>
-            <button type="button" class="btn btn-light">LOG IN</button>
-            <button type="button" class="btn btn-light">FIND CODER</button>
-            <button type="button" class="btn btn-light">CREATE PROFILE</button>
-          </ul>
+        <ul>
+          {{!-- <button type="button" class="btn btn-light">LOG IN</button> --}}
+          <a href="/workers"><button type="button" class="btn btn-light">FIND WORKER</button></a>
+          <a href="/createprofile">
+          <button type="button" class="btn btn-light">CREATE PROFILE</button>
+          </a>
+        </ul>
       </div>
     </div>
   </div>
-  
+
   <!--DONOR CARD-->
   <div id="home-row" class="row">
     <div class="donor-card" style="width: 60rem;">
       <div class="card-body">
         <h5 class="home-card-title">DONOR</h5>
-          <ul>
-            <button type="button" class="btn btn-light">FIND WORKER</button>
-          </ul>
+        <ul>
+          <a href="/workers"><button type="button" class="btn btn-light">FIND WORKER</button></a>
+          <a href="/createprofile">
+          <button type="button" class="btn btn-light">CREATE PROFILE</button>
+          </a>
+
+        </ul>
       </div>
     </div>
   </div>
 
-  
-  
 
-<!--BODY CONTAINER-->
+
+
+  <!--BODY CONTAINER-->
   <div id="flex-container" class="container">
 
-      </div>
-  
-  
-    </div>
   </div>
 
+
+</div>
+</div>
