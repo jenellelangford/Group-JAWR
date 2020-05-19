@@ -1,7 +1,5 @@
 # GROUP JAWR: Light at the End of the Tunnel
 
-<!-- playing around for badges -->
-
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/jenellelangford/Group-JAWR)
 
 **TRELLO LINK:** [Manage JAWR Group Tasks](https://trello.com/b/E6amzYhr/group-jawr)
@@ -24,43 +22,37 @@ Bringing service workers, coders, and patrons together in the age of quarantine.
 * [Credits](#credits)
 * [Collaborators](#collaborators)
 * [New Technology](#newtechnologyresources)
-* [Questions](#questions)
 * [License](#license)
 
 ## Installation
 
 Install dependencies using command below
-- `npm install`
+- `SQL`
+- `SQL WORKBENCH`
 
 ## Usage
-
+RUN IN COMMAND LINE
+- `npm install`
+- `node server.js`
 
 ## Tests
 
 
 ## User Story
 
-3 USERS
-* Worker
-* Tech/Coder
-* Patron 
+**LIGHT AT THE END OF THE TUNNEL| ADOPT A WORKER APP**
+
+Bringing service workers, coders, and patrons together in the age of quarantine. Workers can post their profile with their venmo tag and request technicall help from coders looking to build their profile. Patrons can create an account and view workers and donate via their venmo tag!
 
 ## Credits
 
 ### Collaborators
-* [@jenelle](https://github.com/jenellelangford) :cat: ![GitHub followers](https://img.shields.io/github/followers/jenellelangford?label=Follow&style=social)
-* [@andrew](https://github.com/tanksareforcowards) :tiger: ![GitHub followers](https://img.shields.io/github/followers/tanksareforcowards?label=Follow&style=social)
-* [@william](https://github.com/AvianOverlord) :bird: ![GitHub followers](https://img.shields.io/github/followers/rayfor1?label=Follow&style=social)
-* [@rachel](https://github.com/dcbeergoddess) :dog: ![GitHub followers](https://img.shields.io/github/followers/dcbeergoddess?label=Follow&style=social)
+* **Jenelle Langford** | ![Image of jenellelangford](https://avatars0.githubusercontent.com/u/60627197?v=4&s=25) | [@jenelle](https://github.com/jenellelangford) | ![GitHub followers](https://img.shields.io/github/followers/jenellelangford?label=Follow&style=social)
+* **Andrew Bratcher** | ![Image of tanksareforcowards](https://avatars1.githubusercontent.com/u/37027181?v=4&s=25) | [@andrew](https://github.com/tanksareforcowards) | ![GitHub followers](https://img.shields.io/github/followers/tanksareforcowards?label=Follow&style=social)
+* **William Rave** | ![Image of AvianOverlord](https://avatars0.githubusercontent.com/u/47487767?v=4&s=25) | [@william](https://github.com/AvianOverlord) | ![GitHub followers](https://img.shields.io/github/followers/AvianOverlord?label=Follow&style=social)
+* **Rachel Murray** | ![Image of dcbeergoddess](https://avatars0.githubusercontent.com/u/59098488?v=4&s=25) | [@rachel](https://github.com/dcbeergoddess) | ![GitHub followers](https://img.shields.io/github/followers/dcbeergoddess?label=Follow&style=social)
 
 ### New Technology Resources
-
-
-## Questions
-
-![Image of dcbeergoddess](https://avatars0.githubusercontent.com/u/59098488?v=4&s=200)  
-
-* [**Contact Me**](mailto:dcbeergoddess@gmail.com?subject=readmeGenerator)
 
 ## License
 
