@@ -51,6 +51,14 @@ app.get("/createprofile",function(req,res){
     res.render("inputform", null);
 });
 
+app.get("/users/:id",function(req,res){
+    const userId = req.params.id;
+    connection.query(`SELECT * FROM users WHERE id = ${userId}`, function(err,resQuery){
+      if(err) throw err;
+      res.render("profilepage", {user:resQuery[0]});
+    });
+});
+
 // GET/RENDER WORKER PAGE | WORKER HANDLEBARS
 app.get("/workers",function(req,res){
   connection.query("SELECT * FROM workers INNER JOIN users ON workers.user_id = users.id",function(err, resQuery){
@@ -58,7 +66,7 @@ app.get("/workers",function(req,res){
     // const workers = {
     //   workerArray: resQuery
     // };
-    res.render("workerpage", { workers:resQuery } );
+    res.render("workerpage", { workers:resQuery} );
   });
 });
 
