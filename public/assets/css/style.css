@@ -97,7 +97,6 @@ h5 {
 .html-worker-cards {
   justify-content: space-evenly;
   width: 300px;
-
   justify-content: center;
 }
 
@@ -126,7 +125,13 @@ worker-list {
   text-align: center;
 }
 
+/* FOOTER */
 
+#footer {
+  text-align: center;
+  color: black;
+  background-color: whitesmoke;
+}
 
 /*
 h1 {
