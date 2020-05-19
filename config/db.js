@@ -8,10 +8,10 @@ module.exports = {
     database: "light_db"
   },
   production: {
-    host: "",
+    host: "pqxt96p7ysz6rn1f.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     port: 3306,
-    user: "",
-    password: "",
-    database: ""
+    user: "oew35naq5az79z9x",
+    password: "om9iv7rdijlt5ks7",
+    database: "hkxqp4ptezil8qei"
   }
   }
