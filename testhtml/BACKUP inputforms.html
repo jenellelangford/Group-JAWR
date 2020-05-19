@@ -8,83 +8,13 @@
   <!-- We link our html to the Bootstrap CDN -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
   <link rel="stylesheet" href="../public/assets/css/style.css">
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+  
 
 
   <style>
-
-#logo-img {
-  width: 500px;
-  height: 300px;
-  margin :auto;
-  display: block;
-  padding-bottom: 20px;
-}
-
-#jumbotron {
-  background-image: url("https://images.unsplash.com/photo-1491902761018-cac1cd4df4ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1864&q=80");
-  
-}
-
-body {
-  background-image: url("https://images.unsplash.com/photo-1491902761018-cac1cd4df4ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1864&q=80");
-}
-
-#home-row {
-  justify-content: center;
-}
-
-.home-card-title {
-  font-size: 40px;
-  font-weight: bolder;
-}
-
-.worker-card {
-  background-image: url("../images/Screen\ Shot\ 2020-05-17\ at\ 6.34.48\ PM.png");
-  margin: 10px auto; 
-  float: none; 
-  padding: 10px;
-}
-
-.coder-card {
-  background-image: url("https://images.unsplash.com/photo-1518933165971-611dbc9c412d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80");
-  margin: 10px auto; 
-  float: none; 
-  padding: 10px;
-}
-
-.donor-card {
-  background-image: url("../images/Screen\ Shot\ 2020-05-17\ at\ 6.33.15\ PM.png");
-}
-
-ul {
-  list-style-type: none;
-  text-align: center;
-}
-
-
-h5 {
-  text-align: center;
-  color: white;
-  font-style: bold;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 30px;
-}
-
-  /* Hand dandy coder question hider */
-  #questionhider {
-  display:none;
-  }
-  /* hide ugly buttons-- we're a MODERN website */
-  #imageUpload{
-    display: none;
-  }
-.required
-{
-    color: red;
-}
-#profileImage
+    #profileImage
 {
     cursor: pointer;
     width: 150px;
@@ -107,7 +37,14 @@ h5 {
     -o-border-radius: 50%;
     border-radius: 50%;
 }
-
+  /* Hand dandy coder question hider */
+  #questionhider {
+  display:none;
+  }
+  /* Default profile pic */
+  #file{
+    display: none;
+  }
   </style>
 
 </head>
@@ -135,7 +72,7 @@ h5 {
               <div class="form-group">
               <h3>Tell us about yourself!</h3>
                 <label for="firstName" class="control-label"><h6>First Name:<span class="required">*</span></h6></label>
-                  <input type="name" class="form-control" id="firstName" placeholder="Jane" autocomplete="on" required name=>
+                  <input type="name" class="form-control" id="firstName" placeholder="Jane" autocomplete="on" required>
               </div>
               <div class="form-group">
                 <label for="lastName" class="control-label"><h6>Last Name:<span class="required">*</span></h6></label>
@@ -145,15 +82,9 @@ h5 {
                 <label for="location" class="control-label"><h6>Location:<span class="required">*</span></h6></label>
                   <input type="text" class="form-control" id="location" placeholder="Anytown, VA" required>
               </div>
-              <!-- put in a small divider here-->
-              <hr>
-              <div class="form-group">
-                <label for="location" class="control-label"><h6>Venmo Username (optional)</h6></label>
-                  <input type="text" class="form-control" id="user_venmo" type="email" placeholder="@VenmoUser621">
-              </div>
               <div class="form-group">
                 <h3>Upload an avatar!</h3>
-                <image id="profileImage" src="../public/assets/images/default_avatar.png" />
+                <image id="profileImage" src="http://lorempixel.com/100/100" />
                 <input id="imageUpload" type="file" 
                        name="profile_photo" placeholder="Photo" required="" capture>
                   <label for="avatar">Click the image to change your avatar.</label>
@@ -209,6 +140,16 @@ h5 {
                   </div>
                   <br>
                 </div>
+              <!-- Commented out for now since last question does this job -->
+              <!-- <div class="form-group">
+                <label for="coderTech">Example select</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                  <option>HTML</option>
+                  <option>CSS</option>
+                  <option>JavaScript</option>
+                  <option>NODE</option>
+                </select>
+              </div> -->
               <h3>Just a few more questions:</h3>
               <label for="talent"><h6>I have a secret talent for...</h6></label>
               <div class="form-group">
@@ -240,6 +181,8 @@ h5 {
     </div>
 
     <script>
+// these two functions hide coder question unless user checks 'is coder'
+// probably a cleaner/more efficient way to do this but
     function revealCoderQuestion() {
       var checkBox = document.getElementById("coderbutton");
       var text = document.getElementById("questionhider");
@@ -281,10 +224,12 @@ h5 {
   });
   
   function previewProfileImage( uploader ) {   
+      //ensure a file was selected 
       if (uploader.files && uploader.files[0]) {
           var imageFile = uploader.files[0];
           var reader = new FileReader();    
           reader.onload = function (e) {
+              //set the image data as source
               $('#profileImage').attr('src', e.target.result);
           }    
           reader.readAsDataURL( imageFile );
@@ -294,7 +239,9 @@ h5 {
   $("#imageUpload").change(function(){
       previewProfileImage( this );
   });
-  </script>
+  
+  
+    </script>
 
   
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
