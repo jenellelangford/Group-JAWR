@@ -51,17 +51,17 @@ app.get("/workers",function(req,res){
     // const workers = {
     //   workerArray: resQuery
     // };
-    res.render("workerpage", {workers:resQuery});
+    res.render("workerpage", {  workers:resQuery  });
   });
 });
 
 // GET/RENDER CODER PAGE | CODER HANDLEBARS
 app.get("/coders",function(req,res){
-  connection.query("SELECT * FROM users INNER JOIN coders ON id = user_id", function(err,resQuery){
-    coders = {
-      coderArray: resQuery
-    };
-    res.render("coderpage", coders);
+  connection.query("SELECT * FROM coders INNER JOIN coders ON coders.user_id = users.id", function(err,resQuery){
+    // coders = {
+    //   coderArray: resQuery
+    // };
+    res.render("coderpage", { coders:resQuery } );
   });
 });
 // POST/CREATE NEW WORKER ("api/workers")
