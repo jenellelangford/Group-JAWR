@@ -97,35 +97,39 @@ app.get("/coders",function(req,res){
 //   });
 // });
 
-// Create a new coder
+// Create a NEW CODER
 app.post("/api/coders", function(req, res) {
-  connection.query("INSERT INTO users (user) VALUES (?)", [req.body.user], function(err, res) {
+  connection.query("INSERT INTO users (avatar_src, first_name, last_name, email, user_desc, user_password, user_venmo, user_location) VALUES (?)", [req.body.avatar_src, req.body.first_name, req.body.last_name, req.body.email, req.body.user_desc, req.body.user_password, req.body.user_venmo, req.body.user_location], function(err, res) {
     if (err) throw err; 
   });
-  connection.query("INSERT INTO coders (docer) VALUES (?)", [req.body.coders], function(err, result) {
+  connection.query("INSERT INTO coders (speciality, tech_skills, github, user_id) VALUES (?)", [req.body.speciality, req.body.tech_skills, req.body.github, req.body.user_id], function(err, result) {
     if (err) throw err; 
   });
-  
+  res.redirect("/coderpage");
 });
 
-// // Update an tables example
-// app.put("/api/plans/:id", function(req, res) {
-//   connection.query("UPDATE plans SET plan = ? WHERE id = ?", [req.body.plan, req.params.id], function(err, result) {
-//     if (err) {
-//       // If an error occurred, send a generic server failure
-//       return res.status(500).end();
-//     }
-//     else if (result.changedRows === 0) {
-//       // If no rows were changed, then the ID must not exist, so 404
-//       return res.status(404).end();
-//     }
-//     res.status(200).end();
+//Create NEW WORKER
+app.post("/api/workers", function(req, res) {
+  connection.query("INSERT INTO user (avatar_src, first_name, last_name, email, user_desc, user_password, user_venmo, user_location) VALUES (?)", [req.body.avatar_src, req.body.first_name, req.body.last_name, req.body.email, req.body.user_des, req.body.user_pasword, req.body.user_venmo, req.body.user_location], function(err, res) {
+    if (err) throw err; 
+  });
+  connection.query("INSERT INTO workers (requests, skills, personal_link, user_id) VALUES (?)", [req.body.requests, req.body.skills, req.body.personal_link, req.body.user_id], function(err, result) {
+    if (err) throw err; 
+  });
+  res.redirect("/workerpage");
+});
 
-//   });
-// });
+//Create NEW PATRON
+app.post("/api/patrons", function(req, res) {
+  connection.query("INSERT INTO user (avatar_src, first_name, last_name, email, user_desc, user_password, user_venmo, user_location) VALUES (?)", [req.body.avatar_src, req.body.first_name, req.body.last_name, req.body.email, req.body.user_des, req.body.user_pasword, req.body.user_venmo, req.body.user_location], function(err, res) {
+    if (err) throw err; 
+  });
+  connection.query("INSERT INTO patrons (user_id) VALUES (?)", [req.body.user_id], function(err, result) {
+    if (err) throw err; 
+  });
+  res.redirect("/workerpage");
+});
 
-// POST/CREATE NEW CODER ("api/coders")
-// POST/CREATE NEW PATRON ("api/patrons")
 // UPDATE WORKER ("api/workers/:id")
 // UPDATE CODER ("api/coders:id")
 // UPDATE PATRON ("api/patrons:id") 
