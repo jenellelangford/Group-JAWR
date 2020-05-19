@@ -1,9 +1,9 @@
 USE light_db;
 
 INSERT INTO users (first_name, last_name, email, user_desc, user_password, user_venmo, user_location)
-VALUES ("Rachel", "Murray", "dcbeergoddess@gmail.com", "test", "test", "@dcbeergoddess", "Washington, DC"), 
+VALUES ("Rachel", "Murray", "dcbeergoddess@gmail.com", "dcbeergoddess", "password", "@dcbeergoddess", "Washington, DC"), 
 ("William", "Rave", "william@gmail.com", "test", "test", "@test", "Rockville"),
-("Nicholas", "Cage","nCage@gmail","Bees!","password","venmo","Los Vegas"),
+("Nicholas", "Cage","nCage@gmail","Bees!","password","@Bees!","Las Vegas"),
 ("Gary", "Almes", "Gary@Gary.com","Dammit Dan.","password","venmo","Washington, DC"),
 ("Jenelle", "Langford", "jenellelangford@gmail.com","test","test","venmo","Virgnia"),
 ("Dan", "Rosenbaum", "dRosenbaum@gmail.com","You aren't getting any money Gary","password","venmo","Maryland");

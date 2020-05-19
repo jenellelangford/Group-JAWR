@@ -38,10 +38,17 @@ connection.connect(function(err) {
 
 const userQuery = "first_name, last_name, email, user_desc, user_password, user_venmo, user_location";
 
-// ROUTES PSEUDO CODE FOR server.js
+//==============ROUTES=============
+
 // GET/RENDER HOMEPAGE | INDEX.HANDLEBARS | LOGIN PAGE
 app.get("/",function(req,res){
-  res.render("index",null);
+  res.render("index", null);
+});
+
+// GET/RENDER INPUT FORM | CREATE PROFILE
+
+app.get("/createprofile",function(req,res){
+    res.render("inputform", null);
 });
 
 // GET/RENDER WORKER PAGE | WORKER HANDLEBARS
@@ -65,6 +72,7 @@ app.get("/coders",function(req,res){
     res.render("coderpage", { coders:resQuery } );
   });
 });
+
 // POST/CREATE NEW WORKER ("api/workers")
 // app.post("api/workers",function(req,res){
 //   userData = {

@@ -1,0 +1,239 @@
+
+  <style>
+  /* Hand dandy coder question hider */
+  #questionhider {
+  display:none;
+  }
+  /* hide ugly buttons-- we're a MODERN website */
+  #imageUpload{
+    display: none;
+  }
+.required
+{
+    color: red;
+}
+#profileImage
+{
+    cursor: pointer;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+}
+
+#profile-container {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+}
+
+  </style>
+
+    <div id="viewport">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <form>
+              <div class="form-group">
+              <h3>Create Your Account:</h3>
+              <p><span class="required">*</span> = required field</p>
+              <div class="form-group">
+                <label for="email"><h6>Email address:</h6></label><span class="required">*</span>
+                  <input type="email" class="form-control" id="email" placeholder="name@example.com" autocomplete="on" required>
+              </div>
+              <div class="container-stacked">
+                <label for="password"><h6>Create Password:<span class="required">*</span></h6></label>
+                  <input name="password" required="required" type="password" id="password">
+                <label for="password_confirm"><h6>Confirm Password:<span class="required">*</span></h6></label>
+                  <input name="password_confirm" required="required" type="password" id="password_confirm">
+              </div>
+              <div id="errors" class="well"></div>
+              <div class="form-group">
+              <h3>Tell us about yourself!</h3>
+                <label for="firstName" class="control-label"><h6>First Name:<span class="required">*</span></h6></label>
+                  <input type="name" class="form-control" id="firstName" placeholder="Jane" autocomplete="on" required>
+              </div>
+              <div class="form-group">
+                <label for="lastName" class="control-label"><h6>Last Name:<span class="required">*</span></h6></label>
+                  <input type="name" class="form-control" id="lastName" placeholder="Smith" autocomplete="on" required>
+              </div>
+              <div class="form-group">
+                <label for="location" class="control-label"><h6>Location:<span class="required">*</span></h6></label>
+                  <input type="text" class="form-control" id="location" placeholder="Anytown, VA" required>
+              </div>
+              <!-- put in a small divider here-->
+              <hr>
+              <div class="form-group">
+                <label for="location" class="control-label"><h6>Venmo Username (optional)</h6></label>
+                  <input type="text" class="form-control" id="user_venmo" type="email" placeholder="@VenmoUser621">
+              </div>
+              <div class="form-group">
+                <h3>Upload an avatar!</h3>
+                <image id="profileImage" src="../public/assets/images/default_avatar.png" />
+                <input id="imageUpload" type="file" 
+                       name="profile_photo" placeholder="Photo" required="" capture>
+                  <label for="avatar">Click the image to change your avatar.</label>
+                  <p>It can be a picture of you, or just something you love.<br>  
+                    Don't worry if you're unsure, you'll be able to add one or change it later.</p>
+                </div>
+                <h3>Who are you?</h3>
+                <h8>I am a...<span class="required">*</span></h8>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="usertype" id="worker" value="option1" checked onclick="HIDER()">
+                  <label class="form-check-label" for="worker">
+                    Worker
+                  </label>
+                </div>
+                <div class="form-check" >
+                  <input class="form-check-input" type="radio" name="usertype" id="coderbutton" value="option2" onclick="revealCoderQuestion()" >
+                  <label class="form-check-label" for="coder">
+                    Coder
+                  </label>
+                </div>
+                <div class="form-check" >
+                  <input class="form-check-input" type="radio" name="usertype" id="patron" value="option3" onclick="HIDER()">
+                  <label class="form-check-label" for="patron" >
+                    Patron
+                  </label>
+                </div>
+                <br>
+                <div id="questionhider" class="container" style="display:none" >
+                  <h3>What's your tech speciality?</h3>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="coder-css">
+                    <label class="form-check-label" for="css">
+                      CSS
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="coder-html">
+                    <label class="form-check-label" for="html">
+                      HTML
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="coder-javascript">
+                    <label class="form-check-label" for="javascript">
+                      JavaScript
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="node">
+                    <label class="form-check-label" for="node">
+                      Node.js
+                    </label>
+                  </div>
+                  <br>
+                </div>
+              <h3>Just a few more questions:</h3>
+              <label for="talent"><h6>I have a secret talent for...</h6></label>
+              <div class="form-group">
+                <textarea class="form-control" id="talent" rows="3" placeholder="Whether you juggle chainsaws or have a nice smile, there's no wrong answer."></textarea>
+              </div>
+              <div class="form-group">
+                <label for="youtube"><h6>Got a video of yourself that you'd like to show the world?  Paste the YouTube URL here!:</h6></label>
+                <textarea class="form-control" id="youtube" rows="1" placeholder="https://www.youtube.com/watch?v=dQw4w9WgXcQ"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="userreference"><h6>How did you find our service?</h6></label>
+                <select class="form-control" id="userreference">
+                  <option>Pure luck</option>
+                  <option>Website</option>
+                  <option>Friend</option>
+                  <option>Social media</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="moreinfo"><h6>What else would you like to accomplish?</h6></label>
+                <textarea class="form-control" id="moreinfo" rows="3"></textarea>
+              </div>
+              <input type="submit" value="Submit and Create My Profile">
+            </form>
+            <br>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+    function revealCoderQuestion() {
+      var checkBox = document.getElementById("coderbutton");
+      var text = document.getElementById("questionhider");
+        if (checkBox.checked == true){
+          text.style.display = "block";
+        } else {
+          text.style.display = "none";
+        }
+    }
+    function HIDER() {
+      var checkBox = document.getElementById("coderbutton");
+      var text = document.getElementById("questionhider");
+      text.style.display = "none";
+    }
+    </script>
+      
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+  
+  var password = document.getElementById("password")
+    , confirm_password = document.getElementById("confirm_password");
+  
+  function validatePassword(){
+    if(password.value != confirm_password.value) {
+      confirm_password.setCustomValidity("Passwords Don't Match");
+    } else {
+      confirm_password.setCustomValidity('');
+    }
+  }
+  
+  password.onchange = validatePassword;
+  confirm_password.onkeyup = validatePassword;
+  
+
+  </script>
+<script type="text/javascript">
+  $("#profileImage").click(function(e) {
+      $("#imageUpload").click();
+  });
+  
+  function previewProfileImage( uploader ) {   
+      if (uploader.files && uploader.files[0]) {
+          var imageFile = uploader.files[0];
+          var reader = new FileReader();    
+          reader.onload = function (e) {
+              $('#profileImage').attr('src', e.target.result);
+          }    
+          reader.readAsDataURL( imageFile );
+      }
+  }
+  
+  $("#imageUpload").change(function(){
+      previewProfileImage( this );
+  });
+  </script>
+
+
+  <script type="text/javascript" src="../config/pwverif.js"></script>
+  <script>
+    $(document).ready(function() {
+      $("#password").passwordValidation({"confirmField": "#password_confirm"}, function(element, valid, match, failedCases) {
+  
+          $("#errors").html("<pre>" + failedCases.join("\n") + "</pre>");
+        
+           if(valid) $(element).css("border","2px solid green");
+           if(!valid) $(element).css("border","2px solid red");
+           if(valid && match) $("#password_confirm").css("border","2px solid green");
+           if(!valid || !match) $("#password_confirm").css("border","2px solid red");
+      });
+    });
+  </script>
+ 
