@@ -5,7 +5,7 @@
   display:none;
   }
   /* hide ugly buttons-- we're a MODERN website */
-  #imageUpload{
+  #avatar_src{
     display: none;
   }
 .required
@@ -42,17 +42,17 @@
       <div class="container">
         <div class="row">
           <div class="col-12">
-            <form>
+            <form id="newUser" method="post" autocomplete="on">
               <div class="form-group">
               <h3>Create Your Account:</h3>
               <p><span class="required">*</span> = required field</p>
               <div class="form-group">
                 <label for="email"><h6>Email address:</h6></label><span class="required">*</span>
-                  <input type="email" class="form-control" id="email" placeholder="name@example.com" autocomplete="on" required>
+                  <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" autocomplete="on" required>
               </div>
               <div class="container-stacked">
                 <label for="password"><h6>Create Password:<span class="required">*</span></h6></label>
-                  <input name="password" required="required" type="password" id="password">
+                  <input name="user_password" required="required" type="password" id="user_password">
                 <label for="password_confirm"><h6>Confirm Password:<span class="required">*</span></h6></label>
                   <input name="password_confirm" required="required" type="password" id="password_confirm">
               </div>
@@ -60,26 +60,26 @@
               <div class="form-group">
               <h3>Tell us about yourself!</h3>
                 <label for="firstName" class="control-label"><h6>First Name:<span class="required">*</span></h6></label>
-                  <input type="name" class="form-control" id="firstName" placeholder="Jane" autocomplete="on" required>
+                  <input type="name" class="form-control" id="first_name" name="first_name" placeholder="Jane" autocomplete="on" required>
               </div>
               <div class="form-group">
                 <label for="lastName" class="control-label"><h6>Last Name:<span class="required">*</span></h6></label>
-                  <input type="name" class="form-control" id="lastName" placeholder="Smith" autocomplete="on" required>
+                  <input type="name" class="form-control" id="last_name" name="last_name" placeholder="Smith" autocomplete="on" required>
               </div>
               <div class="form-group">
                 <label for="location" class="control-label"><h6>Location:<span class="required">*</span></h6></label>
-                  <input type="text" class="form-control" id="location" placeholder="Anytown, VA" required>
+                  <input type="text" class="form-control" id="user_location" name="user_location" placeholder="Anytown, VA" required>
               </div>
               <!-- put in a small divider here-->
               <hr>
               <div class="form-group">
                 <label for="location" class="control-label"><h6>Venmo Username (optional)</h6></label>
-                  <input type="text" class="form-control" id="user_venmo" type="email" placeholder="@VenmoUser621">
+                  <input type="text" class="form-control" id="user_venmo" name="user_venmo" type="email" placeholder="@VenmoUser621">
               </div>
               <div class="form-group">
                 <h3>Upload an avatar!</h3>
-                <image id="profileImage" src="../public/assets/images/default_avatar.png" />
-                <input id="imageUpload" type="file" 
+                <image id="profileImage" src="/assets/images/default_avatar.png" />
+                <input id="avatar_src" name="avatar_src" type="file" 
                        name="profile_photo" placeholder="Photo" required="" capture>
                   <label for="avatar">Click the image to change your avatar.</label>
                   <p>It can be a picture of you, or just something you love.<br>  
@@ -88,19 +88,19 @@
                 <h3>Who are you?</h3>
                 <h8>I am a...<span class="required">*</span></h8>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="usertype" id="worker" value="option1" checked onclick="HIDER()">
+                  <input class="form-check-input" type="radio" name="usertype" id="worker" value="worker" checked onclick="HIDER()">
                   <label class="form-check-label" for="worker">
                     Worker
                   </label>
                 </div>
                 <div class="form-check" >
-                  <input class="form-check-input" type="radio" name="usertype" id="coderbutton" value="option2" onclick="revealCoderQuestion()" >
+                  <input class="form-check-input" type="radio" name="usertype" id="coder" value="coder" onclick="revealCoderQuestion()" >
                   <label class="form-check-label" for="coder">
                     Coder
                   </label>
                 </div>
                 <div class="form-check" >
-                  <input class="form-check-input" type="radio" name="usertype" id="patron" value="option3" onclick="HIDER()">
+                  <input class="form-check-input" type="radio" name="usertype" id="patron" value="patron" onclick="HIDER()">
                   <label class="form-check-label" for="patron" >
                     Patron
                   </label>
@@ -135,26 +135,41 @@
                   <br>
                 </div>
               <h3>Just a few more questions:</h3>
-              <label for="talent"><h6>I have a secret talent for...</h6></label>
+              <label for="skills"><h6>I have a secret talent for...</h6></label>
               <div class="form-group">
-                <textarea class="form-control" id="talent" rows="3" placeholder="Whether you juggle chainsaws or have a nice smile, there's no wrong answer."></textarea>
+                <textarea class="form-control" id="skills" name="skills" rows="3" placeholder="Whether you juggle chainsaws or have a nice smile, there's no wrong answer."></textarea>
               </div>
+
+              <label for="background"><h6>My background in 20 words or less is...</h6></label>
+              <div class="form-group">
+                <textarea class="form-control" id="user_desc" name="user_desc" rows="3" placeholder="Professional tweeter and armchair wine historian."></textarea>
+              </div>
+
+              <label for="requests"><h6>Something I could really use is...</h6></label>
+              <div class="form-group">
+                <textarea class="form-control" id="requests" name="requests" rows="3" placeholder="A new laptop and a cup of coffee."></textarea>
+              </div>
+              
               <div class="form-group">
                 <label for="youtube"><h6>Got a video of yourself that you'd like to show the world?  Paste the YouTube URL here!:</h6></label>
-                <textarea class="form-control" id="youtube" rows="1" placeholder="https://www.youtube.com/watch?v=dQw4w9WgXcQ"></textarea>
+                <textarea class="form-control" id="user_youtube" name="user_youtube" rows="1" placeholder="https://www.youtube.com/watch?v=dQw4w9WgXcQ"></textarea>
               </div>
               <div class="form-group">
                 <label for="userreference"><h6>How did you find our service?</h6></label>
-                <select class="form-control" id="userreference">
-                  <option>Pure luck</option>
-                  <option>Website</option>
-                  <option>Friend</option>
-                  <option>Social media</option>
+                <select class="form-control" name="user_reference" id="user_reference">
+                  <option name="Pure luck" value="Pure luck">Pure luck</option>
+                  <option name="Website" value="Website">Website</option>
+                  <option name="Friend" value="Friend">Friend</option>
+                  <option name="Social media" value="Social media">Social media</option>
                 </select>
               </div>
               <div class="form-group">
                 <label for="moreinfo"><h6>What else would you like to accomplish?</h6></label>
-                <textarea class="form-control" id="moreinfo" rows="3"></textarea>
+                <textarea class="form-control" id="user_moreinfo" name="user_moreinfo" rows="3"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="personallink"><h6>Do you have a personal link to include?</h6></label>
+                <textarea class="form-control" id="personal_link" name="personal_link" rows="1"></textarea>
               </div>
               <input type="submit" value="Submit and Create My Profile">
             </form>
@@ -181,10 +196,128 @@
     }
     </script>
       
+<!--
+boilerplate stuff ignore this
+
+<script type="text/javascript">
+
+const mysql = require('mysql');
+const con = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "password",
+  database: "db"
+});
+
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("connected to host");
+  start();
+}); 
+
+<script type="text/javascript">
+// ~~~~~~~~~~~~~~~~~~~~~~~~
+
+// STAGE 1
+// function/listener code for submit button
+
+// code for the listener. this is supposed to grab data from the whole form (the form id is newUser in html) and then run
+// the createAccount function with the data collected from that element.
+document.getElementById("newUser").addEventListener("submit", createAccount(data));
+
+// STAGE 2
+// site checks what type of user (it's a radio they select) and then goes down the appropriate path, keeping the (data) with it.
+function createAccount (data) {
+    // postToUser(data)
+  // based on their answer, post to the right table
+  if (data.isworker.checked == true){
+    postToWorker(data);
+  }
+  if (data.iscoder.checked == true){
+    postToCoder(data);
+  }
+  if (data.ispatron.checked == true){
+    postToCoder(data);
+  }
+}
+
+// STAGE 3
+// Insert collected new user data into their proper table.  Only need one to do the others of course.
+
+function postToWorker(data) {
+  connection.query(
+    "INSERT INTO workers (avatar_src, first_name, last_name, email, user_desc, user_password, user_venmo, user_location) VALUES ?", [data.avatar_src, data.first_name, data.last_name, data.email, data.user_desc, data.user_password, data.user_venmo, data.user_location],
+  // error catcher and confirmation messages
+  function(err) {
+    if (err) throw err;
+    console.log("New user added to the database successfully.");
+    alert("Your account was created successfully!");
+      // return user home -- will fill in home page later
+      window.location.replace("home page")
+  })
+}
+
+
+</script> -->
+<!-- end -->
+
+
+
+
+<!-- begin code scrap heap
+<script type="text/javascript"> $
+(function(){
+  $("#newUser").on("submit", function(event) {
+    event.preventDefault();
+    // [name=first_name will find an element with a name attribute equal to the string "newUser"]
+    let newUser = {
+      first_name: $("#first_name").val().trim(),
+      last_name: $("#last_name").val().trim(),
+    };
+    // Send the POST request.
+    $.ajax("/api/users"), {
+      type: "POST",
+      data: newUser
+    }).then(
+      function() {
+        console.log("created new user");
+        
+      }
+    )
+    }
+  // 
+})
+</script>
+end code scrap heap --> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
   
-  var password = document.getElementById("password")
+  var password = document.getElementById("user_password")
     , confirm_password = document.getElementById("confirm_password");
   
   function validatePassword(){
@@ -202,7 +335,7 @@
   </script>
 <script type="text/javascript">
   $("#profileImage").click(function(e) {
-      $("#imageUpload").click();
+      $("#avatar_src").click();
   });
   
   function previewProfileImage( uploader ) {   
@@ -216,16 +349,16 @@
       }
   }
   
-  $("#imageUpload").change(function(){
+  $("#avatar_src").change(function(){
       previewProfileImage( this );
   });
   </script>
 
 
-  <script type="text/javascript" src="../config/pwverif.js"></script>
+  <script type="text/javascript" src="/pwverif.js"></script>
   <script>
     $(document).ready(function() {
-      $("#password").passwordValidation({"confirmField": "#password_confirm"}, function(element, valid, match, failedCases) {
+      $("#user_password").passwordValidation({"confirmField": "#password_confirm"}, function(element, valid, match, failedCases) {
   
           $("#errors").html("<pre>" + failedCases.join("\n") + "</pre>");
         

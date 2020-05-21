@@ -15,11 +15,16 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(express.static('public'));
+// app.use(express.static(__dirname + '/public'));
+app.use(express.static('config'));
 
 // Set Handlebars as the default templating engine.
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
+// app.use(express.static(__dirname + '/js'));
+// app.use(express.static(__dirname + '/public'));
+// app.use(express.static(__dirname + 'public'));
 
 //by default use local settings
 const dbCreds = (process.env.NODE_ENV === "production") ? config.production : config.db;
@@ -47,16 +52,14 @@ app.get("/",function(req,res){
 
 // GET/RENDER INPUT FORM | CREATE PROFILE
 
-app.get("/createprofile",function(req,res){
-    res.render("inputform", null);
-});
+// wip
+// app.get("/createprofile",function(req,res){
+//     res.sendFile(path.join(__dirname + '/inputforms.h'))
+// });
 
-app.get("/users/:id",function(req,res){
-    const userId = req.params.id;
-    connection.query(`SELECT * FROM users WHERE id = ${userId}`, function(err,resQuery){
-      if(err) throw err;
-      res.render("profilepage", {user:resQuery[0]});
-    });
+// original code 
+app.get("/createprofile",function(req,res){
+  res.render("inputform", null);
 });
 
 // GET/RENDER WORKER PAGE | WORKER HANDLEBARS
@@ -66,7 +69,7 @@ app.get("/workers",function(req,res){
     // const workers = {
     //   workerArray: resQuery
     // };
-    res.render("workerpage", { workers:resQuery} );
+    res.render("workerpage", { workers:resQuery } );
   });
 });
 
@@ -78,7 +81,39 @@ app.get("/coders",function(req,res){
     //   coderArray: resQuery
     // };
     res.render("coderpage", { coders:resQuery } );
+  }); 
+});
+
+app.post("/createprofile", function(req, res) {
+  connection.query("INSERT INTO users (avatar_src, first_name, last_name, email, user_desc, user_password, user_venmo, user_location, user_reference, user_moreinfo) VALUES (?)", [[req.body.avatar_src, req.body.first_name, req.body.last_name, req.body.email, req.body.user_desc, req.body.user_password, req.body.user_venmo, req.body.user_location, req.body.user_reference, req.body.user_moreinfo]], function(err, result) {
+    if (err) {throw err;} 
+      var user_id = result.insertId;
+      // Post to workers table, if new user selects worker
+  if(req.body.usertype == "worker") {
+    connection.query("INSERT INTO workers (skills, personal_link, requests, user_id) VALUES (?)", [[req.body.skills, req.body.personal_link, req.body.requests, user_id]], function(err, result) {
+     if (err) throw err;
+    });
+    res.redirect("/workers");
+   }
+   // Post to coders table, if new user selects coder
+   else if(req.body.usertype == "coder") {
+     connection.query("INSERT INTO coders (speciality, tech_skills, github, user_id) VALUES (?)", [[req.body.speciality, req.body.tech_skills, req.body.github, user_id]], function(err, result) {
+      if (err) throw err;
+     });
+     res.redirect("/coders");
+    }
+   // Post to patrons/donor table, if yadda yadda
+   else if(req.body.usertype == "patron") {
+     connection.query("INSERT INTO patrons (user_id) VALUES (?)", [[user_id]], function(err, result) {
+      if (err) throw err;
+     });
+     res.redirect("/patrons");
+    }
+   else {
+     res.redirect("/");
+   }
   });
+  
 });
 
 // POST/CREATE NEW WORKER ("api/workers")
@@ -105,39 +140,35 @@ app.get("/coders",function(req,res){
 //   });
 // });
 
-// Create a NEW CODER
+// Create a new coder
 app.post("/api/coders", function(req, res) {
-  connection.query("INSERT INTO users (avatar_src, first_name, last_name, email, user_desc, user_password, user_venmo, user_location) VALUES (?)", [req.body.avatar_src, req.body.first_name, req.body.last_name, req.body.email, req.body.user_desc, req.body.user_password, req.body.user_venmo, req.body.user_location], function(err, res) {
+  connection.query("INSERT INTO users (first_name, last_name) VALUES (?)", [req.body.user], function(err, res) {
     if (err) throw err; 
   });
-  connection.query("INSERT INTO coders (speciality, tech_skills, github, user_id) VALUES (?)", [req.body.speciality, req.body.tech_skills, req.body.github, req.body.user_id], function(err, result) {
+  connection.query("INSERT INTO coders (coder) VALUES (?)", [req.body.coders], function(err, res) {
     if (err) throw err; 
   });
-  res.redirect("/coderpage");
+  
 });
 
-//Create NEW WORKER
-app.post("/api/workers", function(req, res) {
-  connection.query("INSERT INTO user (avatar_src, first_name, last_name, email, user_desc, user_password, user_venmo, user_location) VALUES (?)", [req.body.avatar_src, req.body.first_name, req.body.last_name, req.body.email, req.body.user_des, req.body.user_pasword, req.body.user_venmo, req.body.user_location], function(err, res) {
-    if (err) throw err; 
-  });
-  connection.query("INSERT INTO workers (requests, skills, personal_link, user_id) VALUES (?)", [req.body.requests, req.body.skills, req.body.personal_link, req.body.user_id], function(err, result) {
-    if (err) throw err; 
-  });
-  res.redirect("/workerpage");
-});
+// // Update an tables example
+// app.put("/api/plans/:id", function(req, res) {
+//   connection.query("UPDATE plans SET plan = ? WHERE id = ?", [req.body.plan, req.params.id], function(err, result) {
+//     if (err) {
+//       // If an error occurred, send a generic server failure
+//       return res.status(500).end();
+//     }
+//     else if (result.changedRows === 0) {
+//       // If no rows were changed, then the ID must not exist, so 404
+//       return res.status(404).end();
+//     }
+//     res.status(200).end();
 
-//Create NEW PATRON
-app.post("/api/patrons", function(req, res) {
-  connection.query("INSERT INTO user (avatar_src, first_name, last_name, email, user_desc, user_password, user_venmo, user_location) VALUES (?)", [req.body.avatar_src, req.body.first_name, req.body.last_name, req.body.email, req.body.user_des, req.body.user_pasword, req.body.user_venmo, req.body.user_location], function(err, res) {
-    if (err) throw err; 
-  });
-  connection.query("INSERT INTO patrons (user_id) VALUES (?)", [req.body.user_id], function(err, result) {
-    if (err) throw err; 
-  });
-  res.redirect("/workerpage");
-});
+//   });
+// });
 
+// POST/CREATE NEW CODER ("api/coders")
+// POST/CREATE NEW PATRON ("api/patrons")
 // UPDATE WORKER ("api/workers/:id")
 // UPDATE CODER ("api/coders:id")
 // UPDATE PATRON ("api/patrons:id") 
@@ -152,3 +183,23 @@ app.post("/api/patrons", function(req, res) {
 app.listen(PORT, function() {
   console.log("Server listening on: http://localhost:" + PORT);
 });
+
+// server.route({
+//   method: 'GET',
+//   path: '/{filename*}',
+//   handler: {
+//     directory: {
+//       path:    __dirname + '/public',
+//       listing: false,
+//       index:   false
+//     }
+//   }
+// });
+
+// server.route({
+//   method: 'GET',
+//   path: '/',
+//   handler: function(request, reply) {
+//     reply.view('homepage');
+//   }
+// });

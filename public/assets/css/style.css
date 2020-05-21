@@ -1,23 +1,4 @@
-/* NAVBAR */
-.navbar-brand {
-  margin: 0;
-  padding: 0;
-}
-
-.logo {
-  height: 30px;
-  padding-right: 15px;
-  padding-left: 15px;
-}
-
 /* HOME PAGE */
-h1 {
-  font-family: 'Staatliches', cursive;
-  font-size: 100px;
-  text-align: center;
-  margin: 0 auto;
-
-}
 
 #logo-img {
   width: 500px;
@@ -97,6 +78,7 @@ h5 {
 .html-worker-cards {
   justify-content: space-evenly;
   width: 300px;
+
   justify-content: center;
 }
 
@@ -125,13 +107,7 @@ worker-list {
   text-align: center;
 }
 
-/* FOOTER */
 
-#footer {
-  text-align: center;
-  color: black;
-  background-color: whitesmoke;
-}
 
 /*
 h1 {
