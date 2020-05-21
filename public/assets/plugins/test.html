@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me</title>
+
+  <!-- We link our html to the Bootstrap CDN -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"> </script>
+  </script>
+  <script src="/assets/plugins/pwverif.js"></script>
+
+
+  <style>
+
+#logo-img {
+  width: 500px;
+  height: 300px;
+  margin :auto;
+  display: block;
+  padding-bottom: 20px;
+}
+
+#jumbotron {
+  background-image: url("https://images.unsplash.com/photo-1491902761018-cac1cd4df4ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1864&q=80");
+  
+}
+
+body {
+  background-image: url("https://images.unsplash.com/photo-1491902761018-cac1cd4df4ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1864&q=80");
+}
+
+#home-row {
+  justify-content: center;
+}
+
+.home-card-title {
+  font-size: 40px;
+  font-weight: bolder;
+}
+
+.worker-card {
+  background-image: url("../images/Screen\ Shot\ 2020-05-17\ at\ 6.34.48\ PM.png");
+  margin: 10px auto; 
+  float: none; 
+  padding: 10px;
+}
+
+.coder-card {
+  background-image: url("https://images.unsplash.com/photo-1518933165971-611dbc9c412d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80");
+  margin: 10px auto; 
+  float: none; 
+  padding: 10px;
+}
+
+.donor-card {
+  background-image: url("../images/Screen\ Shot\ 2020-05-17\ at\ 6.33.15\ PM.png");
+}
+
+ul {
+  list-style-type: none;
+  text-align: center;
+}
+
+
+h5 {
+  text-align: center;
+  color: white;
+  font-style: bold;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+}
+
+  /* Hand dandy coder question hider */
+  #questionhider {
+  display:none;
+  }
+  /* hide ugly buttons-- we're a MODERN website */
+  #imageUpload{
+    display: none;
+  }
+.required
+{
+    color: red;
+}
+#profileImage
+{
+    cursor: pointer;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+}
+
+#profile-container {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+}
+
+  </style>
+
+</head>
+<body>
+  <body>
+    <div id="viewport">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <form id="newUser">
+              <div class="form-group">
+              <h3>Create Your Account:</h3>
+              <p><span class="required">*</span> = required field</p>
+              <div class="form-group">
+                <label for="email"><h6>Email address:</h6></label><span class="required">*</span>
+                  <input type="email" class="form-control" id="email" placeholder="name@example.com" autocomplete="on" required>
+              </div>
+              <div class="container-stacked">
+                <label for="password"><h6>Create Password:<span class="required">*</span></h6></label>
+                  <input name="password" required="required" type="password" id="password">
+                <label for="password_confirm"><h6>Confirm Password:<span class="required">*</span></h6></label>
+                  <input name="password_confirm" required="required" type="password" id="password_confirm">
+              </div>
+              <div id="errors" class="well"></div>
+              <div class="form-group">
+              <h3>Tell us about yourself!</h3>
+                <label for="firstName" class="control-label"><h6>First Name:<span class="required">*</span></h6></label>
+                  <input type="name" class="form-control" id="firstName" placeholder="Jane" autocomplete="on" required name="first_name">
+              </div>
+              <div class="form-group">
+                <label for="lastName" class="control-label"><h6>Last Name:<span class="required">*</span></h6></label>
+                  <input type="name" class="form-control" id="lastName" placeholder="Smith" autocomplete="on" required name="last_name">
+              </div>
+              <div class="form-group">
+                <label for="location" class="control-label"><h6>Location:<span class="required">*</span></h6></label>
+                  <input type="text" class="form-control" id="location" placeholder="Anytown, VA" required name="user_location">
+              </div>
+              <!-- put in a small divider here-->
+              <hr>
+              <div class="form-group">
+                <label for="location" class="control-label"><h6>Venmo Username (optional)</h6></label>
+                  <input type="text" class="form-control" id="user_venmo" type="email" placeholder="@VenmoUser621" name="user_venmo">
+              </div>
+              <div class="form-group">
+                <h3>Upload an avatar!</h3>
+                <image id="profileImage" src="/assets/images/default_avatar.png" />
+                <input id="imageUpload" type="file" 
+                      placeholder="Photo" required="" name="avatar_src" capture >
+                  <label for="avatar">Click the image to change your avatar.</label>
+                  <p>It can be a picture of you, or just something you love.<br>  
+                    Don't worry if you're unsure, you'll be able to add one or change it later.</p>
+                </div>
+                <h3>Who are you?</h3>
+                <h8>I am a...<span class="required">*</span></h8>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="usertype" id="worker" value="isworker" checked onclick="HIDER()" name="is_worker">
+                  <label class="form-check-label" for="worker">
+                    Worker
+                  </label>
+                </div>
+                <div class="form-check" >
+                  <input class="form-check-input" type="radio" name="usertype" id="coderbutton" value="iscoder" onclick="revealCoderQuestion()" name="is_coder">
+                  <label class="form-check-label" for="coder">
+                    Coder
+                  </label>
+                </div>
+                <div class="form-check" >
+                  <input class="form-check-input" type="radio" name="usertype" id="patron" value="ispatron" onclick="HIDER()" name="is_patron">
+                  <label class="form-check-label" for="patron" >
+                    Patron
+                  </label>
+                </div>
+                <br>
+                <div id="questionhider" class="container" style="display:none" >
+                  <h3>What's your tech speciality?</h3>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="coder-css" name="knows_css">
+                    <label class="form-check-label" for="css">
+                      CSS
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="coder-html" name="knows_html">
+                    <label class="form-check-label" for="html">
+                      HTML
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="coder-javascript" name="knows_javascript">
+                    <label class="form-check-label" for="javascript">
+                      JavaScript
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="node" name="knows_node">
+                    <label class="form-check-label" for="node">
+                      Node.js
+                    </label>
+                  </div>
+                  <br>
+                </div>
+              <h3>Just a few more questions:</h3>
+              <label for="talent"><h6>I have a secret talent for...</h6></label>
+              <div class="form-group">
+                <textarea class="form-control" id="talent" rows="3" placeholder="Whether you juggle chainsaws or have a nice smile, there's no wrong answer." name="user_desc"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="youtube"><h6>Got a video of yourself that you'd like to show the world?  Paste the YouTube URL here!:</h6></label>
+                <textarea class="form-control" id="youtube" rows="1" placeholder="https://www.youtube.com/watch?v=dQw4w9WgXcQ" name="user_youtube"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="userreference"><h6>How did you find our service?</h6></label>
+                <select class="form-control" id="user_reference">
+                  <option>Pure luck</option>
+                  <option>Website</option>
+                  <option>Friend</option>
+                  <option>Social media</option>
+                </select>
+              </div>
+              <div class="form-g`roup">
+                <label for="moreinfo"><h6>What else would you like to accomplish?</h6></label>
+                <textarea class="form-control" id="moreinfo" rows="3" name="user_desc_extended"></textarea>
+              </div>
+              <input type="submit" value="Submit and Create My Profile">
+            </form>
+            <br>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+    function revealCoderQuestion() {
+      var checkBox = document.getElementById("coderbutton");
+      var text = document.getElementById("questionhider");
+        if (checkBox.checked == true){
+          text.style.display = "block";
+        } else {
+          text.style.display = "none";
+        }
+    }
+    function HIDER() {
+      var checkBox = document.getElementById("coderbutton");
+      var text = document.getElementById("questionhider");
+      text.style.display = "none";
+    }
+    </script>
+      
+
+
+<!-- boilerplate stuff ignore this 
+<script type="text/javascript">
+
+const mysql = require('mysql');
+const con = mysql.createConnection({ 
+  host: "localhost",
+  user: "root",
+  password: "password",
+  database: "db"
+});
+
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("connected to host");
+  start();
+});
+// ~~~~~~~~~~~~~~~~~~~~~~~~
+
+// STAGE 1
+// function/listener code for submit button
+
+// code for the listener. this is supposed to grab data from the whole form (the form id is newUser in html) and then run
+// the createAccount function with the data collected from that element.
+document.getElementById("newUser").addEventListener("submit", createAccount(data));
+
+// STAGE 2
+// site checks what type of user (it's a radio they select) and then goes down the appropriate path, keeping the (data) with it.
+function createAccount (data) {
+    // postToUser(data)
+  // based on their answer, post to the right table
+  if (data.isworker.checked == true){
+    postToWorker(data);
+  }
+  if (data.iscoder.checked == true){
+    postToCoder(data);
+  }
+  if (data.ispatron.checked == true){
+    postToCoder(data);
+  }
+}
+
+// STAGE 3
+// Insert collected new user data into their proper table.  Only need one to do the others of course.
+
+function postToWorker(data) {
+  connection.query(
+    "INSERT INTO workers (avatar_src, first_name, last_name, email, user_desc, user_password, user_venmo, user_location) VALUES ?", [data.avatar_src, data.first_name, data.last_name, data.email, data.user_desc, data.user_password, data.user_venmo, data.user_location],
+  // error catcher and confirmation messages
+  function(err) {
+    if (err) throw err;
+    console.log("New user added to the database successfully.");
+    alert("Your account was created successfully!");
+      // return user home -- will fill in home page later
+      window.location.replace("home page")
+  })
+}
+
+
+</script>
+end -->
+
+
+
+
+
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+  
+  var password = document.getElementById("password")
+    , confirm_password = document.getElementById("confirm_password");
+  
+  function validatePassword(){
+    if(password.value != confirm_password.value) {
+      confirm_password.setCustomValidity("Passwords Don't Match");
+    } else {
+      confirm_password.setCustomValidity('');
+    }
+  }
+  
+  password.onchange = validatePassword;
+  confirm_password.onkeyup = validatePassword;
+  
+
+  </script>
+<script type="text/javascript">
+  $("#profileImage").click(function(e) {
+      $("#imageUpload").click();
+  });
+  
+  function previewProfileImage( uploader ) {   
+      if (uploader.files && uploader.files[0]) {
+          var imageFile = uploader.files[0];
+          var reader = new FileReader();    
+          reader.onload = function (e) {
+              $('#profileImage').attr('src', e.target.result);
+          }    
+          reader.readAsDataURL( imageFile );
+      }
+  }
+  
+  $("#imageUpload").change(function(){
+      previewProfileImage( this );
+  });
+  </script>
+
+  
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.slim.min.js">
+  (function($) {
+	$.fn.extend({
+		passwordValidation: function(_options, _callback, _confirmcallback) {
+			//var _unicodeSpecialSet = "^\\x00-\\x1F\\x7F\\x80-\\x9F0-9A-Za-z"; //All chars other than above (and C0/C1)
+			var CHARSETS = {
+				upperCaseSet: "A-Z", 	//All UpperCase (Acii/Unicode)
+				lowerCaseSet: "a-z", 	//All LowerCase (Acii/Unicode)
+				digitSet: "0-9", 		//All digits (Acii/Unicode)
+				specialSet: "\\x20-\\x2F\\x3A-\\x40\\x5B-\\x60\\x7B-\\x7E\\x80-\\xFF", //All Other printable Ascii
+			}
+			var _defaults = {
+				minLength: 8,		  //Minimum Length of password 
+				minUpperCase: 1,	  //Minimum number of Upper Case Letters characters in password
+				minLowerCase: 1,	  //Minimum number of Lower Case Letters characters in password
+				minDigits: 1,		  //Minimum number of digits characters in password
+				minSpecial: 1,		  //Minimum number of special characters in password
+				maxRepeats: 5,		  //Maximum number of repeated alphanumeric characters in password dhgurAAAfjewd <- 3 A's
+				maxConsecutive: 3,	  //Maximum number of alphanumeric characters from one set back to back
+				noUpper: false,		  //Disallow Upper Case Lettera
+				noLower: false,		  //Disallow Lower Case Letters
+				noDigit: false,		  //Disallow Digits
+				noSpecial: false,	  //Disallow Special Characters
+				//NOT IMPLEMENTED YET allowUnicode: false,  //Switches Ascii Special Set out for Unicode Special Set 
+				failRepeats: true,    //Disallow user to have x number of repeated alphanumeric characters ex.. ..A..a..A.. <- fails if maxRepeats <= 3 CASE INSENSITIVE
+				failConsecutive: true,//Disallow user to have x number of consecutive alphanumeric characters from any set ex.. abc <- fails if maxConsecutive <= 3
+				confirmField: undefined
+			};
+
+			//Ensure parameters are correctly defined
+			if($.isFunction(_options)) {
+				if($.isFunction(_callback)) {
+					if($.isFunction(_confirmcallback)) {
+						console.log("Warning in passValidate: 3 or more callbacks were defined... First two will be used.");
+					}
+					_confirmcallback = _callback;
+				}
+				_callback = _options;
+				_options = {};
+			}
+
+			//concatenate user options with _defaults
+			_options = $.extend(_defaults, _options);
+			if(_options.maxRepeats < 2) _options.maxRepeats = 2;
+
+			function charsetToString() {
+				return CHARSETS.upperCaseSet + CHARSETS.lowerCaseSet + CHARSETS.digitSet + CHARSETS.specialSet; 
+			}
+
+			//GENERATE ALL REGEXs FOR EVERY CASE
+			function buildPasswordRegex() {
+				var cases = [];
+
+				//if(_options.allowUnicode) CHARSETS.specialSet = _unicodeSpecialSet;
+				if(_options.noUpper) 	cases.push({"regex": "(?=" + CHARSETS.upperCaseSet + ")",  																				"message": "Password can't contain an Upper Case Letter"});
+				else 					cases.push({"regex": "(?=" + ("[" + CHARSETS.upperCaseSet + "][^" + CHARSETS.upperCaseSet + "]*").repeat(_options.minUpperCase) + ")", 	"message": "Password must contain at least " + _options.minUpperCase + " Upper Case Letter."});
+				if(_options.noLower) 	cases.push({"regex": "(?=" + CHARSETS.lowerCaseSet + ")",  																				"message": "Password can't contain a Lower Case Letter"});
+				else 					cases.push({"regex": "(?=" + ("[" + CHARSETS.lowerCaseSet + "][^" + CHARSETS.lowerCaseSet + "]*").repeat(_options.minLowerCase) + ")", 	"message": "Password must contain at least " + _options.minLowerCase + " Lower Case Letter."});
+				if(_options.noDigit) 	cases.push({"regex": "(?=" + CHARSETS.digitSet + ")", 																					"message": "Password can't contain a Number"});
+				else 					cases.push({"regex": "(?=" + ("[" + CHARSETS.digitSet + "][^" + CHARSETS.digitSet + "]*").repeat(_options.minDigits) + ")", 			"message": "Password must contain at least " + _options.minDigits + " Digit."});
+				if(_options.noSpecial) 	cases.push({"regex": "(?=" + CHARSETS.specialSet + ")", 																				"message": "Password can't contain a Special Character"});
+				else 					cases.push({"regex": "(?=" + ("[" + CHARSETS.specialSet + "][^" + CHARSETS.specialSet + "]*").repeat(_options.minSpecial) + ")", 		"message": "Password must contain at least " + _options.minSpecial + " Special Character."});
+
+				cases.push({"regex":"[" + charsetToString() + "]{" + _options.minLength + ",}", "message":"Password must contain at least " + _options.minLength + " characters."});
+
+				return cases;
+			}
+			var _cases = buildPasswordRegex();
+
+			var _element = this;
+			var $confirmField = (_options.confirmField != undefined)? $(_options.confirmField): undefined;
+
+			//Field validation on every captured event
+			function validateField() {
+				var failedCases = [];
+		
+				//Evaluate all verbose cases
+				$.each(_cases, function(i, _case) {
+					if($(_element).val().search(new RegExp(_case.regex, "g")) == -1) {
+						failedCases.push(_case.message);
+					}
+				});
+				if(_options.failRepeats && $(_element).val().search(new RegExp("(.)" + (".*\\1").repeat(_options.maxRepeats - 1), "gi")) != -1) {
+					failedCases.push("Password can not contain " + _options.maxRepeats + " of the same character case insensitive.");
+				}
+				if(_options.failConsecutive && $(_element).val().search(new RegExp("(?=(.)" + ("\\1").repeat(_options.maxConsecutive) + ")", "g")) != -1) {
+					failedCases.push("Password can't contain the same character more than " + _options.maxConsecutive + " times in a row.");
+				}
+				
+				//Determine if valid
+				var validPassword = (failedCases.length == 0) && ($(_element).val().length >= _options.minLength);
+				var fieldsMatch = true;
+				if($confirmField != undefined) {
+					fieldsMatch = ($confirmField.val() == $(_element).val());
+				}
+
+				_callback(_element, validPassword, validPassword && fieldsMatch, failedCases);
+			}
+
+			//Add custom classes to fields
+			this.each(function() {
+				//Validate field if it is already filled
+				if($(this).val()) {
+					validateField().apply(this);
+				}
+
+				$(this).toggleClass("jqPassField", true);
+				if($confirmField != undefined) {
+					$confirmField.toggleClass("jqPassConfirmField", true);
+				}
+			});
+
+			//Add event bindings to the password fields
+			return this.each(function() {
+				$(this).bind('keyup focus input proprtychange mouseup', validateField);
+				if($confirmField != undefined) {
+					$confirmField.bind('keyup focus input proprtychange mouseup', validateField);
+				}
+			});
+		}
+	});
+})(jQuery);
+    $(document).ready(function() {
+      $("#password").passwordValidation({"confirmField": "#password_confirm"}, function(element, valid, match, failedCases) {
+  
+          $("#errors").html("<pre>" + failedCases.join("\n") + "</pre>");
+        
+           if(valid) $(element).css("border","2px solid green");
+           if(!valid) $(element).css("border","2px solid red");
+           if(valid && match) $("#password_confirm").css("border","2px solid green");
+           if(!valid || !match) $("#password_confirm").css("border","2px solid red");
+      });
+    });
+  </script>
+ 
+  </script>
+
+
+   
+
+
+
+</body>
+</html>

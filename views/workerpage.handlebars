@@ -1,3 +1,8 @@
+<div id="header">
+  <img id="logo-img" src="/assets/images/GroupJawr_Logo_B.png" alt="GROUP JAWR Logo">
+</div>
+
+
 <!--WORKER CONTAINER-->
 <div class="container">
   <div id="worker-row" class="row">
@@ -10,8 +15,7 @@
           <div class="card-body">
             <h5 class="card-title-wp">{{first_name}}</h5>
             <ul id="worker-list">
-              {{!-- Make in to Venmo link --}}
-              <li>Venmo: {{user_venmo}}</li>
+              <li><a href="#" class="card-link"> Venmo: {{user_venmo}}</a></li>
               <li>Location: {{user_location}}</li>
               <li>Bio: {{user_desc}}</li>
               <li>Technology Needs: {{requests}}</li>

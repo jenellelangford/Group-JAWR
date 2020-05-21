@@ -13,6 +13,7 @@ CREATE TABLE users (
   user_password VARCHAR(30),
   user_venmo VARCHAR(30),
   user_location VARCHAR(30)
+  
 );
 
 CREATE TABLE workers (
