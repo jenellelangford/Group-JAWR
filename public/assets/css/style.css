@@ -3,22 +3,18 @@
   margin: 0;
   padding: 0;
 }
-
 .logo {
   height: 30px;
   padding-right: 15px;
   padding-left: 15px;
 }
-
 /* HOME PAGE */
 h1 {
   font-family: 'Staatliches', cursive;
   font-size: 100px;
   text-align: center;
   margin: 0 auto;
-
 }
-
 #logo-img {
   width: 500px;
   height: 300px;
@@ -26,49 +22,37 @@ h1 {
   display: block;
   padding-bottom: 20px;
 }
-
 #jumbotron {
   background-image: url("https://images.unsplash.com/photo-1491902761018-cac1cd4df4ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1864&q=80");
-  
 }
-
 body {
   background-image: url("https://images.unsplash.com/photo-1491902761018-cac1cd4df4ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1864&q=80");
 }
-
 #home-row {
   justify-content: center;
 }
-
 .home-card-title {
   font-size: 40px;
   font-weight: bolder;
 }
-
 .worker-card {
   background-image: url("../images/Screen\ Shot\ 2020-05-17\ at\ 6.34.48\ PM.png");
-  margin: 10px auto; 
   float: none; 
   padding: 10px;
 }
-
 .coder-card {
   background-image: url("https://images.unsplash.com/photo-1518933165971-611dbc9c412d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80");
   margin: 10px auto; 
   float: none; 
   padding: 10px;
 }
-
 .donor-card {
   background-image: url("../images/Screen\ Shot\ 2020-05-17\ at\ 6.33.15\ PM.png");
 }
-
 ul {
   list-style-type: none;
   text-align: center;
 }
-
-
 h5 {
   text-align: center;
   color: white;
@@ -76,42 +60,36 @@ h5 {
   font-family: 'Montserrat', sans-serif;
   font-size: 30px;
 }
-
-/* WORKER PAGE */
-
+/* WORKER PAGE/CODER PAGE */
 #navbar {
   background-color: #FFFAF0;
 }
-
 .container {
   justify-content: space-evenly;
   justify-content: space-around;
+  justify-content: center;
   background-color: whitesmoke;
 }
-
 #worker-row {
   justify-content: space-evenly;
   justify-content: space-around;
 }
-
 .html-worker-cards {
   justify-content: space-evenly;
   width: 300px;
   justify-content: center;
 }
-
 .worker-card {
   width: 400px;
   padding: 0 auto;
   margin: 20px 50px 50px 50px; 
   float: none; 
+  justify-content: center;
 }
-
 .card-body {
   text-align: center;
   font-family: 'Montserrat', sans-serif;
 }
-
 .card-title-wp {
   text-align: center;
   color: black;
@@ -119,20 +97,17 @@ h5 {
   font-family: 'Montserrat', sans-serif;
   font-size: 30px;
 }
-
 worker-list {
   list-style: none;
   text-align: center;
 }
-
 /* FOOTER */
-
 #footer {
   text-align: center;
+  justify-content: center;
   color: black;
   background-color: whitesmoke;
 }
-
 /*
 h1 {
   text-align: center;
