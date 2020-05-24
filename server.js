@@ -3,6 +3,19 @@ const express = require("express");
 const exphbs = require("express-handlebars");
 const mysql = require("mysql")
 const config = require("./config/db")
+const multer = require('multer');
+
+const storage = multer.diskStorage({
+  destination: function(req, file, cb) {
+    cb(null, 'public/assets/uploads/');
+  },
+  filename: function(req, file, cb) {
+    cb(null, file.originalname);
+  }
+
+});
+
+const upload = multer({storage: storage});
 
 // Create an instance of the express app.
 const app = express();
@@ -17,6 +30,7 @@ app.use(express.json());
 app.use(express.static('public'));
 // app.use(express.static(__dirname + '/public'));
 app.use(express.static('config'));
+app.use(express.static('public/assets/uploads'))
 
 // Set Handlebars as the default templating engine.
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
@@ -84,8 +98,9 @@ app.get("/coders",function(req,res){
   }); 
 });
 
-app.post("/createprofile", function(req, res) {
-  connection.query("INSERT INTO users (avatar_src, first_name, last_name, email, user_desc, user_password, user_venmo, user_location, user_reference, user_moreinfo) VALUES (?)", [[req.body.avatar_src, req.body.first_name, req.body.last_name, req.body.email, req.body.user_desc, req.body.user_password, req.body.user_venmo, req.body.user_location, req.body.user_reference, req.body.user_moreinfo]], function(err, result) {
+app.post("/createprofile", upload.single('avatar_src'), function(req, res) {
+  let avatarpath = req.file.filename;
+  connection.query("INSERT INTO users (avatar_src, first_name, last_name, email, user_desc, user_password, user_venmo, user_location, user_reference, user_moreinfo) VALUES (?)", [[avatarpath, req.body.first_name, req.body.last_name, req.body.email, req.body.user_desc, req.body.user_password, req.body.user_venmo, req.body.user_location, req.body.user_reference, req.body.user_moreinfo]], function(err, result) {
     if (err) {throw err;} 
       var user_id = result.insertId;
       // Post to workers table, if new user selects worker
@@ -116,29 +131,9 @@ app.post("/createprofile", function(req, res) {
   
 });
 
-// POST/CREATE NEW WORKER ("api/workers")
-// app.post("api/workers",function(req,res){
-//   userData = {
-//     first_name = req.body.first_name,
-//     last_name = req.body.last_name,
-//     email = req.body.email,
-//     user_desc = req.body.desc,
-//     password = req.body.password,
-//     venmo = req.body.venmo,
-//     location = req.body.location,
-//   };//Common 
-//   workerData = {
-//     skills = req.body.skills,
-//     link = req.body.link
-//   };
-//   connection.query(`INSERT INTO users (${userQuery}) VALUES(?)`,[Object.values(userData)],function(err,resQueryUser){
-//     if(err) throw err;
-//     //get the ID of that new object
-//     connection.query(`INSERT INTO workers (user_id, skills, personal_link) VALUES(?)`, [id,workerData.skills,workerData.link],function(err,resQueryWorker){
-//       res.redirect("/workerpage");
-//     });
-//   });
-// });
+
+
+
 
 // Create a new coder
 app.post("/api/coders", function(req, res) {
