@@ -19,7 +19,7 @@
   "homepage": "https://github.com/jenellelangford/Group-JAWR#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "express-handlebars": "^4.0.4",
+    "express-handlebars": "^5.3.1",
     "multer": "^1.4.2",
     "mysql": "^2.18.1"
   },
